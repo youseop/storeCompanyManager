@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const companyRoutes = require("./routes/comapny");
 const db_config = require('./config/db-config.json')
 
+
 mongoose.connect(db_config.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.json());
