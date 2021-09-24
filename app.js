@@ -3,9 +3,9 @@ const app = express();
 const port = 8080;
 const mongoose = require("mongoose");
 const companyRoutes = require("./routes/comapny");
-const keys = require("./config/keys");
+const db_config = require('./config/db-config.json')
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(db_config.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,7 +16,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.use("/comapany", companyRoutes);
+app.use("/company", companyRoutes);
 
 app.listen(port, () => {
   console.log("Server has been started!");
