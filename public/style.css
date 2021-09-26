@@ -18,12 +18,35 @@ li[data-iscompleted="true"] {
 
 #manage-modal {
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 40px;
+  top: 40px;
   background-color: ivory;
 }
 
 #manage-modal.closed {
+  display: none;
+}
+
+.non-admin-mode #add-button {
+  display: none;
+}
+
+.non-admin-mode #company-list .edit {
+  display: none;
+}
+
+.non-admin-mode #company-list .delete {
+  display: none;
+}
+
+#check-admin-container {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: gainsboro;
+}
+
+#check-admin-container.closed {
   display: none;
 }
 

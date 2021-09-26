@@ -38,7 +38,7 @@ export function getInputFieldManager() {
     resetValues: () => {
       korNameElem.innerText = "";
       engNameElem.innerText = "";
-      brandUrlElem.innerText = "";
+      brandUrlElem.innerText = "https://";
       isBrandedCheckBox.checked = false;
       getCategoriesModel().resetCategories();
     },

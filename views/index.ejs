@@ -37,10 +37,20 @@
       <div id="cancel-button">취소</div>
     </div>
 
-    <!-- user ui start -->
-    <div id="add-button">입점업체 추가</div>
+    <!-- check admin -->
+    <div id='check-admin-container' class='closed'>
+      비밀번호 입력
+      <div contenteditable="true" id="check-admin-input-field"></div>
+      <div id='check-admin-container-button'>확인</div>
+      <div id='close-admin-container-button'>취소</div>
+    </div>
 
-    <ul id="company-list"></ul>
+    <!-- user ui start -->
+    <div id="outer-container" class="non-admin-mode">
+      <div id="add-button">입점업체 추가</div>
+      <div id="admin-button">설정</div>
+      <ul id="company-list"></ul>
+    </divi>
     <script type="module" src="script.js"></script>
   </body>
 </html>
