@@ -3,7 +3,6 @@ const app = express();
 const port = 8080;
 const mongoose = require("mongoose");
 const companyRoutes = require("./routes/comapny");
-const passwordRoutes = require("./routes/password");
 const db_config = require('./config/db-config.json')
 
 
@@ -19,7 +18,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 app.use("/company", companyRoutes);
-app.use("/password", passwordRoutes);
 
 app.listen(port, () => {
   console.log("Server has been started!");

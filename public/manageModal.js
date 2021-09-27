@@ -24,17 +24,16 @@ export function setButtonEventOfManageModal() {
   closeAdminButton.addEventListener("click", () => {
     closeAdminContainerButton();
   });
-  checkAdminButton.addEventListener("click", () => {
+  checkAdminButton.addEventListener("click", async () => {
     const passwordElem = document.getElementById("check-admin-input-field");
-    if (passwordElem.innerText !== "aaaa") {
-      passwordElem.innerText = "";
+    if(passwordElem.innerText ==='aaaa'){
+      const outerContainer = document.getElementById("outer-container");
+      outerContainer.classList.remove("non-admin-mode");
+      closeAdminContainerButton();
+    } else {
       alert("잘못된 비밀번호 입니다.");
-      return;
     }
     passwordElem.innerText = "";
-    const outerContainer = document.getElementById("outer-container");
-    outerContainer.classList.remove("non-admin-mode");
-    closeAdminContainerButton();
   });
 }
 
