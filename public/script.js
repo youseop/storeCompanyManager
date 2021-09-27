@@ -1,5 +1,5 @@
 import { getCompaniesAndUpdate } from "./api.js";
-import { displayManageModal, setButtonEvent } from "./manageModal.js";
+import { displayManageModal, setButtonEventOfManageModal } from "./manageModal.js";
 import { categoryInit } from "./category.js";
 import { deleteCompany } from "./company.js";
 import { initSubmit } from "./submit.js";
@@ -10,7 +10,7 @@ initSubmit();
 document.addEventListener("DOMContentLoaded", async () => {
   await getCompaniesAndUpdate();
   setEventDeligation();
-  setButtonEvent();
+  setButtonEventOfManageModal();
 });
 
 function setEventDeligation() {
@@ -20,9 +20,9 @@ function setEventDeligation() {
     const targetId = target.parentElement.id;
     switch (target.className) {
       case "edit":
-        const targetData = e.target.parentNode.dataset;
-        console.log(targetData);
-
+        const dataForEdit = e.target.parentNode.dataset;
+        console.log(dataForEdit);
+        displayManageModal(dataForEdit);
         //submit 이랑 다른 edit페이지 만들어야함!
         // if (targetData) {
         //   const { korname, engname, brandurl, isbranded, tags } = targetData;
