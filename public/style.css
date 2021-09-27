@@ -50,6 +50,10 @@ li[data-iscompleted="true"] {
   display: none;
 }
 
+#id-for-edit {
+  display: none;
+}
+
 /* drop down script */
 body {
   margin: 0;

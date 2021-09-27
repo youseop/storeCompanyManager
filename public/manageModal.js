@@ -1,4 +1,5 @@
 import { getCategoriesModel } from "./category.js";
+import { EDIT } from "./constant.js";
 
 export function setButtonEventOfManageModal() {
   const addButton = document.getElementById("add-button");
@@ -20,7 +21,6 @@ export function setButtonEventOfManageModal() {
   adminButton.addEventListener("click", () => {
     toggleAdminMode();
   });
-  console.log("closeAdminButton", closeAdminButton);
   closeAdminButton.addEventListener("click", () => {
     closeAdminContainerButton();
   });
@@ -38,21 +38,21 @@ export function setButtonEventOfManageModal() {
   });
 }
 
-export function displayManageModal(dataForEdit) {
+export function displayManageModal(dataForEdit, targetId) {
   const manageModal = document.getElementById("manage-modal");
   manageModal.classList.remove("closed");
   if(dataForEdit){
-    const { korname, engname, brandurl, isbranded, tags } = dataForEdit;
     const submitButton = document.getElementById('submit-button');
-    
     submitButton.classList.add("edit");
-    getInputFieldManager().setValues(dataForEdit);
+    getInputFieldManager().setValues(dataForEdit, targetId);
   }
 }
 
 export function closeManageModal() {
   const manageModal = document.getElementById("manage-modal");
+  const submitButton = document.getElementById("submit-button");
   manageModal.classList.add("closed");
+  submitButton.classList.remove(EDIT);
   getInputFieldManager().resetValues();
 }
 
@@ -99,7 +99,7 @@ export function getInputFieldManager() {
       isBrandedCheckBox.checked = false;
       categoriesModel.resetCategories();
     },
-    setValues: (dataForEdit)=>{
+    setValues: (dataForEdit, targetId)=>{
       const { 
         korname, 
         engname, 
@@ -112,11 +112,17 @@ export function getInputFieldManager() {
       brandUrlElem.innerText = brandurl;
       isBrandedCheckBox.checked = isbranded === 'true';
       
-      const categories = tags.split(",");
+      const categoryIds = tags.split(",");
       categoriesModel.resetCategories();
+      for (const categoryId of categoryIds){
+        if(categoryId.length > 0){
+          categoriesModel.addCompany(categoryId);
+        }
+      }
 
-      for (const category of categories){
-        categoriesModel.addCompany(category);
+      if(targetId){
+        const targetIdField = document.getElementById('id-for-edit');
+        targetIdField.innerText = targetId;
       }
     }
   };

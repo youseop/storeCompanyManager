@@ -37,14 +37,15 @@ export function getCategoriesModel() {
   if (categoriesModel) {
     return categoriesModel;
   }
-  return {
+  const dummyCategoriesModel = {
     getCategories: () => {
       return [];
     },
     resetCategories: () => {},
     addCompany: (company) => {},
     removeCompany: (company) => {},
-  };
+  }
+  return dummyCategoriesModel;
 }
 
 export function categoryInit() {

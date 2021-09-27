@@ -1,4 +1,4 @@
-import { showCompany, resetCompanies } from "./company.js";
+import { showCompany, resetCompanies, editCompany } from "./company.js";
 
 export async function getCompaniesAndUpdate() {
   fetch("/company/api", {
@@ -11,6 +11,7 @@ export async function getCompaniesAndUpdate() {
       return Promise.reject(response);
     })
     .then(function (data) {
+      data.sort((firstElem,secondElem)=>firstElem.korName >= secondElem.korName);
       resetCompanies(data);
     })
     .catch(function (error) {
@@ -35,8 +36,31 @@ export async function addCompaniesAndUpdate(body) {
       return Promise.reject(response);
     })
     .then(function (data) {
-      console.log(data);
       showCompany(data);
+    })
+    .catch(function (error) {
+      console.warn("error while post data", error);
+    });
+}
+
+export async function editComapniesAndUpdate(body, targetId) {
+  fetch(`/company/api/${targetId}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      ...body,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    })
+    .then(function (data) {
+      editCompany(data);
     })
     .catch(function (error) {
       console.warn("error while post data", error);

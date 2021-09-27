@@ -3,6 +3,7 @@ import { displayManageModal, setButtonEventOfManageModal } from "./manageModal.j
 import { categoryInit } from "./category.js";
 import { deleteCompany } from "./company.js";
 import { initSubmit } from "./submit.js";
+import { DELETE, EDIT } from "./constant.js";
 
 categoryInit();
 initSubmit();
@@ -19,23 +20,11 @@ function setEventDeligation() {
     const target = e.target;
     const targetId = target.parentElement.id;
     switch (target.className) {
-      case "edit":
+      case EDIT:
         const dataForEdit = e.target.parentNode.dataset;
-        console.log(dataForEdit);
-        displayManageModal(dataForEdit);
-        //submit 이랑 다른 edit페이지 만들어야함!
-        // if (targetData) {
-        //   const { korname, engname, brandurl, isbranded, tags } = targetData;
-        //   const korName = korname;
-        //   const engName = engname;
-        //   const brandUrl = brandurl;
-        //   const isBranded = isbranded === "true";
-        //   const categories = tags.split(",");
-        //   console.log(korName, engName, brandUrl, isBranded, categories);
-
-        // }
+        displayManageModal(dataForEdit, targetId);
         break;
-      case "delete":
+      case DELETE:
         if (confirm("정말 삭제 하시겠습니까?")) {
           deleteCompany(targetId);
         }

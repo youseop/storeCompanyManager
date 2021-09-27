@@ -5,7 +5,7 @@ const Company = require("../models/company");
 let companies = [];
 
 router.get("/api", async (req, res) => {
-  if (companies.lengt > 0) {
+  if (companies.length > 0) {
     res.send(companies);
   }
   try {
