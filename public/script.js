@@ -1,7 +1,6 @@
-import { getCompaniesAndUpdate } from "./api.js";
+import { deleteCompanyAndUpdate, getCompaniesAndUpdate } from "./api.js";
 import { displayManageModal, setButtonEventOfManageModal } from "./manageModal.js";
 import { categoryInit } from "./category.js";
-import { deleteCompany } from "./company.js";
 import { initSubmit } from "./submit.js";
 import { DELETE, EDIT } from "./constant.js";
 
@@ -26,7 +25,7 @@ function setEventDeligation() {
         break;
       case DELETE:
         if (confirm("정말 삭제 하시겠습니까?")) {
-          deleteCompany(targetId);
+          deleteCompanyAndUpdate(targetId);
         }
         break;
       default:

@@ -1,4 +1,4 @@
-import { deleteCompanyAndUpdate } from "./api.js";
+import { resetCategory } from "./category.js";
 
 function showCompanies(companies) {
   for (let company of companies) {
@@ -52,17 +52,62 @@ export function editCompany(company){
   }
 }
 
-export function resetCompanies(companies) {
+function updateCompanies(companies) {
   const companyList = document.getElementById("company-list");
   while (companyList.firstChild) {
     companyList.removeChild(companyList.lastChild);
   }
+  resetCategory();
   showCompanies(companies);
 }
 
-export function deleteCompany(targetId) {
-  const companyList = document.getElementById("company-list");
-  const targetElement = document.getElementById(targetId);
-  companyList.removeChild(targetElement);
-  deleteCompanyAndUpdate(targetId);
+function getCompanyManager(){
+  let totalCompanies = [];
+  return {
+    resetCompaniesInCategory:(categoryId)=>{
+      const companiesInCategory = totalCompanies.filter(company => {
+        return company.tags.includes(categoryId);
+      });
+      updateCompanies(companiesInCategory);
+    },
+    setCompanies: (companies)=>{
+      totalCompanies = companies.sort((firstElem,secondElem)=>firstElem.korName >= secondElem.korName);
+      updateCompanies(totalCompanies);
+    },
+    addCompany: (company)=>{
+      totalCompanies.push(company);
+      totalCompanies = totalCompanies.sort((firstElem,secondElem)=>firstElem.korName >= secondElem.korName);
+      updateCompanies(totalCompanies);
+    },
+    resetCompanies: () => {
+      updateCompanies(totalCompanies);
+    },
+    editCompany: (editedCompany) => {
+      console.log("before edit",totalCompanies)
+      for (const company of totalCompanies){
+        if(company._id === editedCompany._id){
+          company.engName = editedCompany.engName;
+          company.korName = editedCompany.korName;
+          company.brandUrl = editedCompany.brandUrl;
+          company.tags = editedCompany.tags;
+          company.isBranded = editedCompany.isBranded;
+        }
+      }
+      console.log("after edit",totalCompanies)
+      updateCompanies(totalCompanies);
+    },
+    deleteCompany: (targetId)=>{
+      const companyList = document.getElementById("company-list");
+      const targetElement = document.getElementById(targetId);
+      companyList.removeChild(targetElement);
+
+      totalCompanies = totalCompanies.filter(company => company._id !== targetId);
+      updateCompanies(totalCompanies);
+    },
+    getTotalCompanies: ()=>{
+      return totalCompanies;
+    },
+  }
 }
+
+export const companyManager = getCompanyManager();

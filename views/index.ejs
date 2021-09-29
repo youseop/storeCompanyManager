@@ -5,53 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
+    <title>입점업체</title>
   </head>
   <body>
     <!-- admin ui start -->
-    <div id="manage-modal" class="closed">
-      입점 브랜드명 한글 표기
-      <div contenteditable="true" id="korNameInputField"></div>
-      입점 브랜드명 영문 및 기타 표기
-      <div contenteditable="true" id="engNameInputField"></div>
-      입점 브랜드 홈페이지 링크
-      <div contenteditable="true" id="brandUrlInputField">http://</div>
+    <div class='wrapper-container'>
+      <div id="manage-modal" class="closed">
+        입점 브랜드명 한글 표기
+        <div contenteditable="true" id="korNameInputField"></div>
+        입점 브랜드명 영문 및 기타 표기
+        <div contenteditable="true" id="engNameInputField"></div>
+        입점 브랜드 홈페이지 링크
+        <div contenteditable="true" id="brandUrlInputField">http://</div>
 
-      <label for="isBrandedCheckBox">
-        <input type="checkbox" id="isBrandedCheckBox" />
-        브랜디드 산하 브랜드
-      </label>
+        <label for="isBrandedCheckBox">
+          <input type="checkbox" id="isBrandedCheckBox" />
+          브랜디드 산하 브랜드
+        </label>
 
-      <div class="dropdown closed">
-        <div id="category-title">카테고리 <span>∆</span></div>
-        <ul id="category-menu">
-          <li id="man-clothes">남성의류</li>
-          <li id="man-accesery">남성악세사리</li>
-        </ul>
+        <div class="dropdown closed">
+          <div id="category-title">카테고리 <span>∆</span></div>
+          <ul id="category-menu">
+            <li id="man-clothes">남성의류</li>
+            <li id="man-accesery">남성악세사리</li>
+          </ul>
+        </div>
+
+        <div id="category-list"></div>
+
+        <div id="submit-button">submit</div>
+
+        <div id="cancel-button">취소</div>
+        <div id="id-for-edit"></div>
       </div>
 
-      <div id="category-list"></div>
+      <!-- check admin -->
+      <div id='check-admin-container' class='closed'>
+        비밀번호 입력
+        <div contenteditable="true" id="check-admin-input-field"></div>
+        <div id='check-admin-container-button'>확인</div>
+        <div id='close-admin-container-button'>취소</div>
+      </div>
 
-      <div id="submit-button">submit</div>
+      <!-- user ui start -->
+      <div class="title-container">
+        <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
+        <img src="asset/icon_setting.svg" alt="admin" id="admin-button"/>
+      </div>
 
-      <div id="cancel-button">취소</div>
-      <div id="id-for-edit"></div>
+      <div class="search-container">
+        <div>검색</div> 검색
+      </div>
+
+      <div class="category-container">
+        <ul id="user-category-list" class="total">
+          <li id="total" class="clicked">전체</li>
+          <li id='man-clothes'>남성의류</li>
+          <li id="man-shose">남성슈즈</li>
+          <li id="man-accesery">남성악세서리</li>
+        </ul>
+      </div>
+        
+      <div id="outer-container" class="non-admin-mode">
+        <div id="add-button">입점업체 추가</div>
+        <ul id="company-list"></ul>
+      </div>
+
     </div>
-
-    <!-- check admin -->
-    <div id='check-admin-container' class='closed'>
-      비밀번호 입력
-      <div contenteditable="true" id="check-admin-input-field"></div>
-      <div id='check-admin-container-button'>확인</div>
-      <div id='close-admin-container-button'>취소</div>
-    </div>
-
-    <!-- user ui start -->
-    <div id="outer-container" class="non-admin-mode">
-      <div id="add-button">입점업체 추가</div>
-      <div id="admin-button">설정</div>
-      <ul id="company-list"></ul>
-    </divi>
     <script type="module" src="script.js"></script>
   </body>
 </html>

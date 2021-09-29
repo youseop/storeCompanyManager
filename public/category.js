@@ -1,11 +1,15 @@
+import { companyManager } from "./company.js";
+
 const categoryMenu = document.querySelector("#category-menu");
 const categoryList = document.querySelector("#category-list");
 const dropdown = document.querySelector(".dropdown");
+const userCategoryList = document.querySelector("#user-category-list");
 let categoriesModel = null;
 
 const mapCategoryIdToText = {
   "man-clothes": "남성의류",
   "man-accesery": "남성악세사리",
+  "man-shose": "남성슈즈"
 };
 
 function initCategories() {
@@ -71,6 +75,32 @@ export function categoryInit() {
       dropdown.classList.add("closed");
     }
   });
+
+  userCategoryList.addEventListener("click",(e)=>{
+    const categoryId = e.originalTarget.id;
+    changeCategory(categoryId)
+    if(categoryId === 'total'){
+      companyManager.resetCompanies();
+    } else{
+      companyManager.resetCompaniesInCategory(categoryId);
+    }
+  })
+}
+
+function changeCategory(categoryId){
+  const prevCategory = userCategoryList.classList[0];
+  if(prevCategory === categoryId){
+    return;
+  }
+  const prevCategoryElem = userCategoryList.querySelector(`#${prevCategory}`);
+  const nextCategoryElem = userCategoryList.querySelector(`#${categoryId}`);
+  prevCategoryElem.className="";
+  nextCategoryElem.className="clicked"
+  userCategoryList.className=categoryId;
+}
+
+export function resetCategory(){
+  changeCategory('total');
 }
 
 function addCategoryButton(categoryId) {
