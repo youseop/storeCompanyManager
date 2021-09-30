@@ -1,6 +1,15 @@
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   font-size: 15px;
+  all: unset;
+}
+
+input {
+  all: unset;
+}
+
+ul {
+  all: unset;
 }
 
 .wrapper-container{
@@ -11,7 +20,7 @@ body {
   box-shadow: 0px 0px 3px 3px rgb(219, 219, 219);
 }
 
-/* title */
+/* title-container */
 .title-container{
   height: 54px;
   padding: 0 20px;
@@ -31,6 +40,55 @@ body {
 .title-container #admin-button{
   height: 18px;
   width: 18px;
+}
+
+.non-admin-mode #logout-icon {
+  display: none;
+}
+
+.admin-mode #login-icon {
+  display: none;
+}
+
+/* inner-container */
+.inner-container{
+  margin: 17px 20px;  
+}
+
+/* search-container */
+.search-container{ 
+  background-color: #f7f7f7;
+  height: 20px;
+  color: #767676;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: 14px;
+  margin-bottom: 17px;
+}
+
+#search-input-field{
+  margin-left: 12px;
+}
+
+#search-icon{
+  width: 14px;
+  height: 14px;
+}
+
+/* category-container */
+.category-container{
+  background-color: thistle;
+  width: 100%;
+}
+
+.category-container #user-category-list{
+  overflow-y: auto;
+  height: 20px;
+}
+
+.category-container #user-category-list > span{
+  background-color: tomato;
 }
 
 .delete {

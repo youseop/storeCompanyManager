@@ -28,7 +28,7 @@ export function setButtonEventOfManageModal() {
     const passwordElem = document.getElementById("check-admin-input-field");
     if(passwordElem.innerText ==='aaaa'){
       const outerContainer = document.getElementById("outer-container");
-      outerContainer.classList.remove("non-admin-mode");
+      outerContainer.className = "admin-mode";
       closeAdminContainerButton();
     } else {
       alert("잘못된 비밀번호 입니다.");
@@ -56,12 +56,21 @@ export function closeManageModal() {
 }
 
 function toggleAdminMode() {
+  const adminButton = document.getElementById("admin-button");
   const outerContainer = document.getElementById("outer-container");
   const checkAdminContainer = document.getElementById("check-admin-container");
   if (outerContainer.classList.contains("non-admin-mode")) {
     checkAdminContainer.classList.remove("closed");
   } else {
-    outerContainer.classList.add("non-admin-mode");
+    outerContainer.className = "non-admin-mode";
+  }
+
+  const adminButtonClassName = adminButton.className;
+  console.log(adminButtonClassName)
+  if(adminButtonClassName === 'logout'){
+    adminButton.className = "login"
+  } else {
+    adminButton.className = "logout"
   }
 }
 

@@ -48,30 +48,46 @@
         <div id='close-admin-container-button'>취소</div>
       </div>
 
-      <!-- user ui start -->
-      <div class="title-container">
-        <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
-        <img src="asset/icon_setting.svg" alt="admin" id="admin-button"/>
-      </div>
-
-      <div class="search-container">
-        <div>검색</div> 검색
-      </div>
-
-      <div class="category-container">
-        <ul id="user-category-list" class="total">
-          <li id="total" class="clicked">전체</li>
-          <li id='man-clothes'>남성의류</li>
-          <li id="man-shose">남성슈즈</li>
-          <li id="man-accesery">남성악세서리</li>
-        </ul>
-      </div>
-        
       <div id="outer-container" class="non-admin-mode">
-        <div id="add-button">입점업체 추가</div>
-        <ul id="company-list"></ul>
-      </div>
 
+        <!-- user ui start -->
+        <div class="title-container">
+          <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
+          <div id="admin-button">
+            <img src="asset/icon_login.svg" alt="admin" id="login-icon"/>
+            <img src="asset/icon_logout.svg" alt="admin" id="logout-icon"/>
+          </div>
+        </div>
+
+        <div class="inner-container">
+
+          <div class="search-container">
+            <img src="asset/icon_search.svg" alt="admin" id="search-icon"/>
+            <input 
+            placeholder="검색"  
+            type="text" id="search-input-field" name="brand-name" required>
+          </div>
+
+          <div class="category-container">
+            <div id="user-category-list" class="total">
+              <span id="total" class="clicked">전체</span>
+              <span id='man-clothes'>남성의류</span>
+              <span id="man-shose">남성슈즈</span>
+              <span id="man-accesery">남성악세서리</span>
+              <span id="aaaaa">aaaaa</span>
+              <span id="bbbbb">bbbbb</span>
+              <span id="ccccc">ccccc</span>
+              <span id="ddddd">ddddd</span>
+              <span id="eeeee">eeeee</span>
+            </div>
+          </div>
+            
+          <div id="companies-container">
+            <div id="add-button">입점업체 추가</div>
+            <ul id="company-list"></ul>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="script.js"></script>
   </body>

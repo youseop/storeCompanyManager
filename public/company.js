@@ -83,8 +83,7 @@ function getCompanyManager(){
       updateCompanies(totalCompanies);
     },
     editCompany: (editedCompany) => {
-      console.log("before edit",totalCompanies)
-      for (const company of totalCompanies){
+      for (let company of totalCompanies){
         if(company._id === editedCompany._id){
           company.engName = editedCompany.engName;
           company.korName = editedCompany.korName;
@@ -93,7 +92,6 @@ function getCompanyManager(){
           company.isBranded = editedCompany.isBranded;
         }
       }
-      console.log("after edit",totalCompanies)
       updateCompanies(totalCompanies);
     },
     deleteCompany: (targetId)=>{
