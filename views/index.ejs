@@ -20,8 +20,8 @@
         <div contenteditable="true" id="brandUrlInputField">http://</div>
 
         <label for="isBrandedCheckBox">
-          <input type="checkbox" id="isBrandedCheckBox" />
           브랜디드 산하 브랜드
+          <input type="checkbox" id="isBrandedCheckBox" />
         </label>
 
         <div class="dropdown closed">
@@ -42,10 +42,17 @@
 
       <!-- check admin -->
       <div id='check-admin-container' class='closed'>
-        비밀번호 입력
-        <div contenteditable="true" id="check-admin-input-field"></div>
-        <div id='check-admin-container-button'>확인</div>
-        <div id='close-admin-container-button'>취소</div>
+        <div id="check-admin-background">
+          <div class="check-admin-title">
+            <div>관리자 인증</div>    
+            <img src="asset/icon_x.svg" alt="logo" class="close-admin" id='close-admin-container-button'/>
+          </div>
+          <div class="check-admin-body">
+            <div>Password</div>
+            <div contenteditable="true" id="check-admin-input-field"></div>
+            <div id='check-admin-container-button'>확인</div>
+          </div>
+        </div>
       </div>
 
       <div id="outer-container" class="non-admin-mode">
@@ -70,20 +77,17 @@
 
           <div class="category-container">
             <div id="user-category-list" class="total">
-              <span id="total" class="clicked">전체</span>
-              <span id='man-clothes'>남성의류</span>
-              <span id="man-shose">남성슈즈</span>
-              <span id="man-accesery">남성악세서리</span>
-              <span id="aaaaa">aaaaa</span>
-              <span id="bbbbb">bbbbb</span>
-              <span id="ccccc">ccccc</span>
-              <span id="ddddd">ddddd</span>
-              <span id="eeeee">eeeee</span>
+              <div id="total" class="clicked">전체</div>
+              <div id='man-clothes'>남성의류</div>
+              <div id="man-shose">남성슈즈</div>
+              <div id="man-accesery">남성악세서리</div>
             </div>
           </div>
             
           <div id="companies-container">
-            <div id="add-button">입점업체 추가</div>
+            <div id="add-button-container">
+              <div id="add-button">입점 브랜드 추가</div>
+            </div>
             <ul id="company-list"></ul>
           </div>
         </div>

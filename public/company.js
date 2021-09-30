@@ -1,15 +1,67 @@
 import { resetCategory } from "./category.js";
+import { findHangul, getCharFromCho } from "./word.js";
+
+const companyList = document.getElementById("company-list");
 
 function showCompanies(companies) {
-  for (let company of companies) {
+  showBrandedCompanies(companies);
+
+  const alignedCompaniesByCho = alignCompaniesByCho(companies);
+  for (const cho in alignedCompaniesByCho){
+    addKoreanCategoryTitle(cho);
+    const companies = alignedCompaniesByCho[cho];
+    for (const company of companies){
+      showCompany(company);
+    }
+  }
+}
+
+function alignCompaniesByCho(companies){
+  const alignedCompaniesByCho = {};
+  for (const company of companies){
+    const chosung = findHangul(company.korName);
+    if(chosung){
+      if(alignedCompaniesByCho[chosung] === undefined){
+        alignedCompaniesByCho[chosung] = [];
+      }
+      alignedCompaniesByCho[chosung].push(company);
+    }
+  }
+  return alignedCompaniesByCho;
+}
+
+function showBrandedCompanies (companies) {
+  const categoryTag = `
+    <div class="category-tag" id="branded">
+      브랜디드 인더스트리
+    </div>
+    `
+  const brandedCompanies = companies.filter(company=>company.isBranded);
+  if(brandedCompanies.length > 0){
+    companyList.insertAdjacentHTML("beforeend",categoryTag);
+  } else {
+    return;
+  }
+  for (const company of brandedCompanies){
     showCompany(company);
   }
+}
+
+function addKoreanCategoryTitle (cho){
+  const char = getCharFromCho(cho);
+  const categoryTag = `
+    <div class="category-tag" id="${char}">
+      ${char}
+    </div>
+    `
+  companyList.insertAdjacentHTML("beforeend",categoryTag);
 }
 
 // todo - 정렬되어서 들어가게 수정해야 한다.
 export function showCompany(company) {
   const elem = `
   <li 
+    class='company'
     id='${company._id}' 
     data-korname="${company.korName}"
     data-engname="${company.engName}"
@@ -17,14 +69,16 @@ export function showCompany(company) {
     data-isbranded="${company.isBranded}"
     data-tags="${company.tags}"
   >
-  <span class="edit">edit</span>
-  <a href='${company.brandUrl}' target="_blank" title="${company.korName}">
-    <span class="text" id="kor-name">${company.korName}</span>
-    <span class="text" id="eng-name">${company.engName}</span>
-  </a>
-  <span class="delete">X</span>
+    <img src="asset/icon_edit.svg" alt="logo" class="edit"/>
+    <a class="company-link" href='${company.brandUrl}' target="_blank" title="${company.korName}">
+      <div>
+        <span class="text" id="kor-name">${company.korName}</span>
+        <span class="text" id="eng-name">${company.engName}</span>
+      </div>    
+    </a>
+    <div class="arrow">></div>
+    <img src="asset/icon_x.svg" alt="logo" class="delete"/>
   </li>`;
-  const companyList = document.getElementById("company-list");
   companyList.insertAdjacentHTML("beforeend", elem);
 }
 

@@ -8,9 +8,6 @@ export function setButtonEventOfManageModal() {
   const checkAdminButton = document.getElementById(
     "check-admin-container-button"
   );
-  const closeAdminButton = document.getElementById(
-    "close-admin-container-button"
-  );
 
   addButton.addEventListener("click", () => {
     displayManageModal();
@@ -21,9 +18,27 @@ export function setButtonEventOfManageModal() {
   adminButton.addEventListener("click", () => {
     toggleAdminMode();
   });
+
+
+  const closeAdminButton = document.getElementById(
+    "close-admin-container-button"
+  );
+  const adminContainer = document.getElementById(
+    "check-admin-container"
+  );
+  const adminBackground = document.getElementById("check-admin-background");
   closeAdminButton.addEventListener("click", () => {
     closeAdminContainerButton();
   });
+  adminContainer.addEventListener("click", () => {
+    closeAdminContainerButton();
+  });
+  adminBackground.addEventListener("click", (e)=>{
+    e.stopPropagation();
+  })
+  
+
+
   checkAdminButton.addEventListener("click", async () => {
     const passwordElem = document.getElementById("check-admin-input-field");
     if(passwordElem.innerText ==='aaaa'){
@@ -66,7 +81,6 @@ function toggleAdminMode() {
   }
 
   const adminButtonClassName = adminButton.className;
-  console.log(adminButtonClassName)
   if(adminButtonClassName === 'logout'){
     adminButton.className = "login"
   } else {

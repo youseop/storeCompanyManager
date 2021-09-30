@@ -11,6 +11,8 @@ function submit(e) {
   const targetClassList = e.target.classList;
   const inputFieldManager = getInputFieldManager();
   const inputFieldValues = inputFieldManager.getValues();
+  console.log(inputFieldValues)
+  console.log(targetClassList.contains(EDIT))
   if (inputFieldValues === undefined) {
     return
   }
