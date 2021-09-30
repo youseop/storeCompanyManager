@@ -5,7 +5,10 @@ const companyList = document.getElementById("company-list");
 
 function showCompanies(companies) {
   showBrandedCompanies(companies);
+  showCompaniesAlignedByKor(companies);
+}
 
+function showCompaniesAlignedByKor(companies){
   const alignedCompaniesByCho = alignCompaniesByCho(companies);
   for (const cho in alignedCompaniesByCho){
     addKoreanCategoryTitle(cho);
@@ -57,7 +60,6 @@ function addKoreanCategoryTitle (cho){
   companyList.insertAdjacentHTML("beforeend",categoryTag);
 }
 
-// todo - 정렬되어서 들어가게 수정해야 한다.
 export function showCompany(company) {
   const elem = `
   <li 

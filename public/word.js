@@ -38,4 +38,25 @@ export function findHangul(string) {
         }
     };
     return validateHangul(string);
-  }
+}
+  
+
+// 이거 이용해서 브랜드 첫 글자는 한글로 통일하도록 체크하자. 입력받는 쪽에서
+// 브랜드 한글 이름 - 10브랜디드 이런거 안되게!
+export function checkKor(str){
+    const regExp = /[ㄱ-하-ㅣ가-힣]/g;
+    if(regExp.test(str)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export function checkEng(str){
+    const regExp = /[a-zA-z]/g;
+    if(regExp.test(str)){
+        return true;
+    } else {
+        return false;
+    }
+}
