@@ -9,7 +9,7 @@ let categoriesModel = null;
 const mapCategoryIdToText = {
   "man-clothes": "남성의류",
   "man-accesery": "남성악세사리",
-  "man-shose": "남성슈즈"
+  "man-shose": "남성슈즈",
 };
 
 function initCategories() {
@@ -48,7 +48,7 @@ export function getCategoriesModel() {
     resetCategories: () => {},
     addCompany: (company) => {},
     removeCompany: (company) => {},
-  }
+  };
   return dummyCategoriesModel;
 }
 
@@ -76,35 +76,36 @@ export function categoryInit() {
     }
   });
 
-  userCategoryList.addEventListener("click",(e)=>{
-    const categoryId = e.originalTarget.id;
-    if(categoryId === 'user-category-list'){
+  userCategoryList.addEventListener("click", (e) => {
+    const categoryId = e.target.id;
+    console.log(categoryId);
+    if (categoryId === "user-category-list") {
       //카테고리 이외의 부분 누른경우 이렇게 예외처리....
       return;
     }
-    changeCategory(categoryId)
-    if(categoryId === 'total'){
+    changeCategory(categoryId);
+    if (categoryId === "total") {
       companyManager.resetCompanies();
-    } else{
+    } else {
       companyManager.resetCompaniesInCategory(categoryId);
     }
-  })
+  });
 }
 
-function changeCategory(categoryId){
+function changeCategory(categoryId) {
   const prevCategory = userCategoryList.classList[0];
-  if(prevCategory === categoryId){
+  if (prevCategory === categoryId) {
     return;
   }
   const prevCategoryElem = userCategoryList.querySelector(`#${prevCategory}`);
   const nextCategoryElem = userCategoryList.querySelector(`#${categoryId}`);
-  prevCategoryElem.className="";
-  nextCategoryElem.className="clicked"
-  userCategoryList.className=categoryId;
+  prevCategoryElem.className = "";
+  nextCategoryElem.className = "clicked";
+  userCategoryList.className = categoryId;
 }
 
-export function resetCategory(){
-  changeCategory('total');
+export function resetCategory() {
+  changeCategory("total");
 }
 
 function addCategoryButton(categoryId) {
