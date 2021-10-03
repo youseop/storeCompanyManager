@@ -1,5 +1,6 @@
 import { getCategoriesModel } from "./category.js";
 import { EDIT } from "./constant.js";
+import { pwd } from "./env.js";
 
 export function setButtonEventOfManageModal() {
   const addButton = document.getElementById("add-button");
@@ -19,13 +20,10 @@ export function setButtonEventOfManageModal() {
     toggleAdminMode();
   });
 
-
   const closeAdminButton = document.getElementById(
     "close-admin-container-button"
   );
-  const adminContainer = document.getElementById(
-    "check-admin-container"
-  );
+  const adminContainer = document.getElementById("check-admin-container");
   const adminBackground = document.getElementById("check-admin-background");
   closeAdminButton.addEventListener("click", () => {
     closeAdminContainerButton();
@@ -33,15 +31,13 @@ export function setButtonEventOfManageModal() {
   adminContainer.addEventListener("click", () => {
     closeAdminContainerButton();
   });
-  adminBackground.addEventListener("click", (e)=>{
+  adminBackground.addEventListener("click", (e) => {
     e.stopPropagation();
-  })
-  
-
+  });
 
   checkAdminButton.addEventListener("click", async () => {
     const passwordElem = document.getElementById("check-admin-input-field");
-    if(passwordElem.innerText ==='aaaa'){
+    if (passwordElem.innerText === pwd) {
       const outerContainer = document.getElementById("outer-container");
       outerContainer.className = "admin-mode";
       closeAdminContainerButton();
@@ -55,8 +51,8 @@ export function setButtonEventOfManageModal() {
 export function displayManageModal(dataForEdit, targetId) {
   const manageModal = document.getElementById("manage-modal");
   manageModal.classList.remove("closed");
-  if(dataForEdit){
-    const submitButton = document.getElementById('submit-button');
+  if (dataForEdit) {
+    const submitButton = document.getElementById("submit-button");
     submitButton.classList.add("edit");
     getInputFieldManager().setValues(dataForEdit, targetId);
   }
@@ -81,10 +77,10 @@ function toggleAdminMode() {
   }
 
   const adminButtonClassName = adminButton.className;
-  if(adminButtonClassName === 'logout'){
-    adminButton.className = "login"
+  if (adminButtonClassName === "logout") {
+    adminButton.className = "login";
   } else {
-    adminButton.className = "logout"
+    adminButton.className = "logout";
   }
 }
 
@@ -98,9 +94,9 @@ export function getInputFieldManager() {
   const engNameElem = document.getElementById("engNameInputField");
   const brandUrlElem = document.getElementById("brandUrlInputField");
   const isBrandedCheckBox = document.getElementById("isBrandedCheckBox");
-  
+
   const categoriesModel = getCategoriesModel();
-  
+
   return {
     getValues: () => {
       const korName = korNameElem.innerText;
@@ -121,32 +117,26 @@ export function getInputFieldManager() {
       isBrandedCheckBox.checked = false;
       categoriesModel.resetCategories();
     },
-    setValues: (dataForEdit, targetId)=>{
-      const { 
-        korname, 
-        engname, 
-        brandurl, 
-        isbranded, 
-        tags 
-      } = dataForEdit;
+    setValues: (dataForEdit, targetId) => {
+      const { korname, engname, brandurl, isbranded, tags } = dataForEdit;
       korNameElem.innerText = korname;
       engNameElem.innerText = engname;
       brandUrlElem.innerText = brandurl;
-      isBrandedCheckBox.checked = isbranded === 'true';
-      
+      isBrandedCheckBox.checked = isbranded === "true";
+
       const categoryIds = tags.split(",");
       categoriesModel.resetCategories();
-      for (const categoryId of categoryIds){
-        if(categoryId.length > 0){
+      for (const categoryId of categoryIds) {
+        if (categoryId.length > 0) {
           categoriesModel.addCompany(categoryId);
         }
       }
 
-      if(targetId){
-        const targetIdField = document.getElementById('id-for-edit');
+      if (targetId) {
+        const targetIdField = document.getElementById("id-for-edit");
         targetIdField.innerText = targetId;
       }
-    }
+    },
   };
 }
 
