@@ -1,14 +1,19 @@
+import { deleteCompanyAndUpdate } from "./api.js";
 import { getCategoriesModel } from "./category.js";
 import { EDIT } from "./constant.js";
 import { pwd } from "./env.js";
+
+const checkAdminContainer = document.getElementById("check-admin-container");
+const deleteAdminContainer = document.getElementById("delete-admin-container");
 
 export function setButtonEventOfManageModal() {
   const addButton = document.getElementById("add-button");
   const cancelButton = document.getElementById("cancel-button");
   const adminButton = document.getElementById("admin-button");
-  const checkAdminButton = document.getElementById(
-    "check-admin-container-button"
+  const passwordForm = document.getElementById(
+    "password-form"
   );
+  const deleteButton = document.getElementById('delete-admin-container-button');
 
   addButton.addEventListener("click", () => {
     displayManageModal();
@@ -19,32 +24,48 @@ export function setButtonEventOfManageModal() {
   adminButton.addEventListener("click", () => {
     toggleAdminMode();
   });
+  deleteButton.addEventListener('click', ()=>{
+    const targetId = deleteButton.className;
+    deleteCompanyAndUpdate(targetId);
+    closeDeleteContainer();
+  })
+
+  const closeDeleteAdminButton = document.getElementById(
+    "close-delete-admin-container-button"
+  );
+  closeDeleteAdminButton.addEventListener("click", () => {
+    closeAdminContainer();
+  });
+  deleteAdminContainer.addEventListener('click',()=>{
+    closeDeleteContainer();
+  })
 
   const closeAdminButton = document.getElementById(
     "close-admin-container-button"
   );
-  const adminContainer = document.getElementById("check-admin-container");
-  const adminBackground = document.getElementById("check-admin-background");
   closeAdminButton.addEventListener("click", () => {
-    closeAdminContainerButton();
+    closeAdminContainer();
   });
-  adminContainer.addEventListener("click", () => {
-    closeAdminContainerButton();
+  checkAdminContainer.addEventListener("click", () => {
+    closeAdminContainer();
   });
+
+  const adminBackground = document.getElementById("check-admin-background");
   adminBackground.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
-  checkAdminButton.addEventListener("click", async () => {
+  passwordForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
     const passwordElem = document.getElementById("check-admin-input-field");
-    if (passwordElem.innerText === pwd) {
+    if (passwordElem.value === pwd) {
       const outerContainer = document.getElementById("outer-container");
       outerContainer.className = "admin-mode";
-      closeAdminContainerButton();
+      closeAdminContainer();
     } else {
       alert("잘못된 비밀번호 입니다.");
     }
-    passwordElem.innerText = "";
+    passwordElem.value = "";
   });
 }
 
@@ -69,9 +90,10 @@ export function closeManageModal() {
 function toggleAdminMode() {
   const adminButton = document.getElementById("admin-button");
   const outerContainer = document.getElementById("outer-container");
-  const checkAdminContainer = document.getElementById("check-admin-container");
+  const pwdInput = document.getElementById("check-admin-input-field");
   if (outerContainer.classList.contains("non-admin-mode")) {
     checkAdminContainer.classList.remove("closed");
+    pwdInput.focus();
   } else {
     outerContainer.className = "non-admin-mode";
   }
@@ -84,9 +106,14 @@ function toggleAdminMode() {
   }
 }
 
-function closeAdminContainerButton() {
-  const checkAdminContainer = document.getElementById("check-admin-container");
+function closeAdminContainer() {
+  const pwdInput = document.getElementById("check-admin-input-field");
+  pwdInput.value='';
   checkAdminContainer.classList.add("closed");
+}
+
+function closeDeleteContainer() {
+  deleteAdminContainer.classList.add("closed");
 }
 
 export function getInputFieldManager() {
@@ -147,3 +174,5 @@ function checkValue(text) {
   }
   return true;
 }
+
+

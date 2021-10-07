@@ -72,13 +72,24 @@ export function showCompany(company) {
     data-tags="${company.tags}"
   >
     <img src="asset/icon_edit.svg" alt="logo" class="edit"/>
-    <a class="company-link" href='${company.brandUrl}' target="_blank" title="${company.korName}">
+    <a class="company-link-common company-link-nonadmin" href='${company.brandUrl}' target="_blank" title="${company.korName}">
       <div>
         <span class="text" id="kor-name">${company.korName}</span>
         <span class="text" id="eng-name">${company.engName}</span>
       </div>    
+      <div class="arrow">
+        <img src="asset/icon_main_arrow.svg" alt="admin" class="link-icon"/>
+      </div>
     </a>
-    <div class="arrow">></div>
+    <div class="company-link-common company-link-admin" href='${company.brandUrl}' target="_blank" title="${company.korName}">
+      <div>
+        <span class="text" id="kor-name">${company.korName}</span>
+        <span class="text" id="eng-name">${company.engName}</span>
+      </div>    
+      <div class="arrow">
+        <img src="asset/icon_main_arrow.svg" alt="admin" class="link-icon"/>
+      </div>
+    </div>
     <img src="asset/icon_x.svg" alt="logo" class="delete"/>
   </li>`;
   companyList.insertAdjacentHTML("beforeend", elem);
@@ -161,6 +172,16 @@ function getCompanyManager(){
     getTotalCompanies: ()=>{
       return totalCompanies;
     },
+    searchCompany: (keyWord) => {
+      const LoweredKeyWord = keyWord.toLowerCase();
+      const searchedCompanies = totalCompanies.filter(company => {
+        if(company.engName.toLowerCase().indexOf(keyWord)>=0 || company.korName.indexOf(keyWord)>=0){
+          return true;
+        }
+        return false;
+      })
+      updateCompanies(searchedCompanies);
+    }
   }
 }
 

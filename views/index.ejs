@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- todo - 아이콘 수정 필요 -->
+    <link rel="icon" href="asset/icon_edit.svg">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css" />
     <title>입점업체</title>
@@ -49,8 +51,29 @@
           </div>
           <div class="check-admin-body">
             <div class="password-title">Password</div>
-            <div contenteditable="true" id="check-admin-input-field"></div>
-            <div id='check-admin-container-button'>인증</div>
+            <form id="password-form">
+              <input type="password" id="check-admin-input-field"></input>
+              <input type="submit" id='check-admin-container-button' value="인증"></input>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- delete admin -->
+      <div id='delete-admin-container' class='closed'>
+        <div id="delete-admin-background">
+          <div class="delete-admin-title">
+            <div>입점 브랜드 삭제</div>    
+            <img src="asset/icon_x.svg" alt="logo" class="close-admin" id='close-delete-admin-container-button'/>
+          </div>
+          <div class="delete-admin-body">
+            <span class="delete-warning">
+              선택하신
+              <span class="red-text">브랜디드</span>
+              <br>
+              브랜드를 목록에서 삭제합니다.
+            </span>
+            <div id='delete-admin-container-button'>삭제</div>
           </div>
         </div>
       </div>
@@ -59,7 +82,9 @@
 
         <!-- user ui start -->
         <div class="title-container">
-          <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
+          <a onClick="window.location.reload()">
+            <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
+          </a>
           <div id="admin-button">
             <img src="asset/icon_login.svg" alt="admin" id="login-icon"/>
             <img src="asset/icon_logout.svg" alt="admin" id="logout-icon"/>
@@ -69,10 +94,15 @@
         <div class="inner-container">
 
           <div class="search-container">
-            <img src="asset/icon_search.svg" alt="admin" id="search-icon"/>
-            <input 
-            placeholder="검색"  
-            type="text" id="search-input-field" name="brand-name" required>
+            <form class="search-form" id="search-form">
+              <img src="asset/icon_search.svg" alt="admin" id="search-icon"/>
+              <input 
+                id="search-input"
+                class="search-input"
+                placeholder="검색"  
+                type="text" id="search-input-field" name="brand-name" required
+              >
+            </form>
           </div>
 
           <div class="category-container">
@@ -86,9 +116,34 @@
             
           <div id="companies-container">
             <div id="add-button-container">
-              <div id="add-button">입점 브랜드 추가</div>
+              <div id="add-button">
+                <img src="asset/icon_plus.svg" alt="admin" id="plus-icon"/>
+                입점 브랜드 추가
+              </div>
             </div>
             <ul id="company-list"></ul>
+            <div class="branded-info">
+              <div class="info-text-container first-child">
+                <span class="gray-text">상호</span>
+                <span>(주) 브랜디드 인더스트리</span>
+              </div>
+              <div class="info-text-container">
+                <span class="textarea-with-width">
+                  <span class="gray-text">사업자번호</span>
+                  <span>457-81-01830</span>
+                </span>
+                <span class="gray-text">대표자</span>
+                <span>김우용</span>
+              </div>
+              <div class="info-text-container">
+                <span class="textarea-with-width">
+                  <span class="gray-text">문의</span>
+                  <span>eventsupport@naver.com</span>
+                </span>
+                <span class="gray-text">주소</span>
+                <span>대구광역시 동구 안심로 280 2층</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

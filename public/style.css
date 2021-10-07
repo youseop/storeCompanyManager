@@ -17,6 +17,7 @@ ul {
   width: 100vw;
   max-width: 500px;
   min-height: 100vh;
+  padding-bottom: 100px;
   margin: auto;  
   box-shadow: 0px 0px 3px 3px rgb(219, 219, 219);
 }
@@ -36,11 +37,13 @@ ul {
   width: 83.6px;
   height: 23.1px;
   margin: 0px 0.3px 0.3px 0;
+  cursor: pointer;
 }
 
 .title-container #admin-button{
   height: 18px;
   width: 18px;
+  cursor: pointer;
 }
 
 .non-admin-mode #logout-icon {
@@ -49,6 +52,10 @@ ul {
 
 .admin-mode #login-icon {
   display: none;
+}
+
+.close-admin{
+  cursor: pointer;
 }
 
 /* inner-container */
@@ -68,6 +75,16 @@ ul {
   margin-bottom: 20px;
 }
 
+.search-form{
+  width: 100%;
+  display: flex;
+}
+
+.search-input{
+  flex: 1;
+  color: #767676;
+}
+
 #search-input-field{
   margin-left: 12px;
 }
@@ -75,11 +92,13 @@ ul {
 #search-icon{
   width: 14px;
   height: 14px;
+  padding-right: 8px;
+  cursor: pointer;
 }
 
 /* category-container */
 .category-container{
-  background-color: thistle;
+  background-color: rgb(221, 220, 221);
   width: 100%;
 }
 
@@ -117,17 +136,28 @@ ul {
   border-bottom: 1px solid #cbcbcb;
 }
 
-.company a{
+.company .company-link-common{
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.company a #eng-name{
+.company .company-link-common #eng-name{
   color: #adadad;
   margin-left: 3px;
   font-size: 9px;
+}
+
+.company-link-common{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.link-icon{
+  width: 7px;
+  height: 10px;
 }
 
 .admin-mode .arrow{
@@ -143,12 +173,14 @@ ul {
   color: red;
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 .edit{
   width: 24px;
   height: 24px;
   padding: 10px;
+  cursor: pointer;
 }
 
 /* add-button-container */
@@ -162,21 +194,31 @@ ul {
   transform: translate(0, 20px);
 }
 
+#plus-icon{
+  width: 11px;
+  height: 11px;
+  padding-right: 4px;
+}
+
 #add-button{
-  width: 131px;
+  width: 120px;
   height: 24px;
   background-color: black;
   color: white;
   padding: 3px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* check-admin-background */
 
 #check-admin-container {
-  position: absolute;
-  transform: translate(-50%, 0);
+  position: fixed;
+  transform: translate(calc(-51%), 0);
   left: 50vw;
   background-color: rgba(0, 0, 0, 0.4);
   width: 100vw;
@@ -185,6 +227,24 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#check-admin-container-button{
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 40px;  
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#password-form{
+  width: 100%;
 }
 
 #check-admin-container.closed {
@@ -230,17 +290,69 @@ ul {
   width: 100%;
   height: 20px;  
   border: 1px solid #cbcbcb;
-  padding: 10px 0;
+  padding: 10px 5px;
 }
 
-#close-admin{
-  width: 14px;
-  height: 14px;
+/* delete-admin-background */
+
+#delete-admin-container {
+  position: fixed;
+  transform: translate(calc(-51%), 0);
+  left: 50vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  max-width: 500px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-#check-admin-container-button{
+#delete-admin-container.closed {
+  display: none;
+}
+
+#delete-admin-background{
+  width: 335px;
+  height: 217px;
+  background-color: white;
+}
+
+.delete-admin-title{
+  color: #a02121;
+  height: 32px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:16px;
+  border-bottom: 1px solid #cbcbcb;
+}
+
+.delete-admin-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+
+.delete-warning{
+  font-size: 16px;
+  width: 100%;  
+  line-height: 1.64;
+}
+
+#delete-admin-input-field{
   width: 100%;
-  background-color: black;
+  height: 20px;  
+  border: 1px solid #cbcbcb;
+  padding: 10px 5px;
+}
+
+#delete-admin-container-button{
+  width: 100%;
+  background-color: #a02121;
   color: white;
   height: 40px;  
   margin-top: 16px;
@@ -249,8 +361,14 @@ ul {
   justify-content: center;  
   font-size: 12px;
   font-weight: bold;
+  text-align: center;
+  cursor: pointer;
 }
 
+.red-text{
+  color: #a02121;
+  font-weight: bold;
+}
 
 /*  */
 
@@ -284,6 +402,14 @@ ul {
   display: none;
 }
 
+.admin-mode #company-list .company-link-nonadmin {
+  display: none;
+}
+
+.non-admin-mode #company-list .company-link-admin {
+  display: none;
+}
+
 #id-for-edit {
   display: none;
 }
@@ -291,6 +417,33 @@ ul {
 /* user-category-list */
 #user-category-list li.clicked {
   background-color: gray;
+}
+
+/* branded-info */
+.branded-info{
+  font-family: Pretendard;
+  margin-top: 300px;
+  padding-top: 15px;
+  width: 100%;
+  border-top: 1px solid #cbcbcb;
+}
+
+.info-text-container{
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+.info-text-container.first-child{
+  margin-bottom: 9px;
+}
+
+.gray-text{
+  color: #6a6a6a;
+}
+
+.textarea-with-width{
+  display: inline-block;
+  width: 145px;
 }
 
 /* drop down script */
