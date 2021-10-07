@@ -5,6 +5,7 @@ import { pwd } from "./env.js";
 
 const checkAdminContainer = document.getElementById("check-admin-container");
 const deleteAdminContainer = document.getElementById("delete-admin-container");
+const modalManageContainer = document.getElementById("manage-modal-container");
 
 export function setButtonEventOfManageModal() {
   const addButton = document.getElementById("add-button");
@@ -14,27 +15,24 @@ export function setButtonEventOfManageModal() {
     "password-form"
   );
   const deleteButton = document.getElementById('delete-admin-container-button');
-
-  addButton.addEventListener("click", () => {
-    displayManageModal();
-  });
-  cancelButton.addEventListener("click", () => {
-    closeManageModal();
-  });
-  adminButton.addEventListener("click", () => {
-    toggleAdminMode();
-  });
+  const manageModalCloseButton = document.getElementById('close-manage-modal-button');
+  
+  addButton.addEventListener("click", displayManageModal);
+  cancelButton.addEventListener("click", closeManageModal);
+  adminButton.addEventListener("click", toggleAdminMode);
   deleteButton.addEventListener('click', ()=>{
     const targetId = deleteButton.className;
     deleteCompanyAndUpdate(targetId);
     closeDeleteContainer();
-  })
+  });
+  manageModalCloseButton.addEventListener('click', closeManageModal);
+  modalManageContainer.addEventListener('click', closeManageModal);
 
   const closeDeleteAdminButton = document.getElementById(
     "close-delete-admin-container-button"
   );
   closeDeleteAdminButton.addEventListener("click", () => {
-    closeAdminContainer();
+    closeDeleteContainer();
   });
   deleteAdminContainer.addEventListener('click',()=>{
     closeDeleteContainer();
@@ -54,6 +52,14 @@ export function setButtonEventOfManageModal() {
   adminBackground.addEventListener("click", (e) => {
     e.stopPropagation();
   });
+  const deleteAdminBackground = document.getElementById("delete-admin-background");
+  deleteAdminBackground.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+  const manageModalBackground = document.getElementById("manage-modal-background");
+  manageModalBackground.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 
   passwordForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -70,7 +76,7 @@ export function setButtonEventOfManageModal() {
 }
 
 export function displayManageModal(dataForEdit, targetId) {
-  const manageModal = document.getElementById("manage-modal");
+  const manageModal = document.getElementById("manage-modal-container");
   manageModal.classList.remove("closed");
   if (dataForEdit) {
     const submitButton = document.getElementById("submit-button");
@@ -80,7 +86,7 @@ export function displayManageModal(dataForEdit, targetId) {
 }
 
 export function closeManageModal() {
-  const manageModal = document.getElementById("manage-modal");
+  const manageModal = document.getElementById("manage-modal-container");
   const submitButton = document.getElementById("submit-button");
   manageModal.classList.add("closed");
   submitButton.classList.remove(EDIT);

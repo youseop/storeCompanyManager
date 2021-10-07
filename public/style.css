@@ -5,7 +5,15 @@ body {
   all: unset;
 }
 
-input {
+input[type=text] {
+  all: unset;
+}
+
+input[type=submit] {
+  all: unset;
+}
+
+input[type=password] {
   all: unset;
 }
 
@@ -214,6 +222,54 @@ ul {
   cursor: pointer;
 }
 
+/* manage-modal */
+#manage-modal-container{
+  position: fixed;
+  transform: translate(calc(-51%), 0);
+  left: 50vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  max-width: 500px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#manage-modal-background{
+  width: 335px;
+  height: 600px;
+  background-color: white;
+}
+
+.manage-modal-body{
+  margin: 15px;
+}
+
+.gray-text{
+  color: #767676;
+  font-size: 12px;
+}
+
+.manage-modal-input-field{
+  width:calc(100% - 5px);
+  height: 30px;
+  border: solid 1px #ccc;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-family: Pretendard;
+}
+
+#isBrandedCheckBox{
+  background-color: aqua;
+  width: 15px;
+  height: 15px;
+  transform: translateY(1px);
+}
+
 /* check-admin-background */
 
 #check-admin-container {
@@ -257,7 +313,7 @@ ul {
   background-color: white;
 }
 
-.check-admin-title{
+.admin-title{
   height: 32px;
   font-size: 20px;
   display: flex;
@@ -287,7 +343,7 @@ ul {
 }
 
 #check-admin-input-field{
-  width: 100%;
+  width: calc(100% - 13px);
   height: 20px;  
   border: 1px solid #cbcbcb;
   padding: 10px 5px;
@@ -378,15 +434,7 @@ ul {
   background-color: gray;
 }
 
-#manage-modal {
-  position: absolute;
-  left: 40px;
-  top: 40px;
-  background-color: ivory;
-  z-index: 10;
-}
-
-#manage-modal.closed {
+#manage-modal-container.closed {
   display: none;
 }
 
