@@ -23,7 +23,6 @@ function setEventDeligation() {
   todoList.addEventListener("click", (e) => {
     const target = e.target;
     const targetId = target.parentElement.id;
-    console.log("target.className: ",target.className)
     switch (target.className) {
       case EDIT:
         const dataForEdit = e.target.parentNode.dataset;

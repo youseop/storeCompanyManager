@@ -17,7 +17,7 @@ export function setButtonEventOfManageModal() {
   const deleteButton = document.getElementById('delete-admin-container-button');
   const manageModalCloseButton = document.getElementById('close-manage-modal-button');
   
-  addButton.addEventListener("click", displayManageModal);
+  addButton.addEventListener("click", ()=>{displayManageModal()});
   cancelButton.addEventListener("click", closeManageModal);
   adminButton.addEventListener("click", toggleAdminMode);
   deleteButton.addEventListener('click', ()=>{

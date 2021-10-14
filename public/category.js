@@ -82,7 +82,6 @@ export function categoryInit() {
 
   userCategoryList.addEventListener("click", (e) => {
     const categoryId = e.target.id;
-    console.log(categoryId);
     if (categoryId === "user-category-list") {
       //카테고리 이외의 부분 누른경우 이렇게 예외처리....
       return;
