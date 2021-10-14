@@ -1,4 +1,4 @@
-import { resetCategory } from "./category.js";
+import { addBrandedSidebarLink, addSidebarLink } from "./sidebar.js";
 import { findHangul, getCharFromCho } from "./word.js";
 
 const companyList = document.getElementById("company-list");
@@ -39,6 +39,9 @@ function showBrandedCompanies (companies) {
       브랜디드 인더스트리
     </div>
     `
+  const starIcon = document.getElementById('star-icon');
+  starIcon.addEventListener('click', addBrandedSidebarLink);
+
   const brandedCompanies = companies.filter(company=>company.isBranded);
   if(brandedCompanies.length > 0){
     companyList.insertAdjacentHTML("beforeend",categoryTag);
@@ -58,6 +61,11 @@ function addKoreanCategoryTitle (cho){
     </div>
     `
   companyList.insertAdjacentHTML("beforeend",categoryTag);
+  const charElem = document.getElementById(`${char}_link`);
+  if(charElem){
+    charElem.addEventListener('click', addSidebarLink);
+    charElem.addEventListener('touchstart', addSidebarLink);
+  }
 }
 
 export function showCompany(company) {
@@ -124,7 +132,6 @@ function updateCompanies(companies) {
   while (companyList.firstChild) {
     companyList.removeChild(companyList.lastChild);
   }
-  resetCategory();
   showCompanies(companies);
 }
 

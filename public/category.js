@@ -9,7 +9,8 @@ let categoriesModel = null;
 const mapCategoryIdToText = {
   "man-clothes": "남성의류",
   "man-accesery": "남성악세사리",
-  "man-shose": "남성슈즈",
+  "man-shose": "남성신발",
+  "beauty": "뷰티",
 };
 
 function initCategories() {
@@ -64,8 +65,11 @@ export function categoryInit() {
     const target = e.target;
     if (target.id === "category-list") {
       return;
+    } else if(target.className==='delete-category'){
+      categoriesModel.removeCompany(e.target.parentElement);
+    } else {
+      categoriesModel.removeCompany(target);
     }
-    categoriesModel.removeCompany(target);
   });
 
   dropdown.addEventListener("click", (e) => {
@@ -112,6 +116,7 @@ function addCategoryButton(categoryId) {
   const elem = `
     <div id="${categoryId}">
       ${mapCategoryIdToText[categoryId]}
+      <img src="asset/icon_x.svg" alt="logo" class="delete-category"/>
     </div>
   `;
   categoryList.insertAdjacentHTML("beforeend", elem);

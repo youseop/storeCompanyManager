@@ -13,9 +13,7 @@
   <body>
     <!-- admin ui start -->
     <div class='wrapper-container'>
-      <div id="manage-modal-container" class="">
-        <!-- <div id="manage-modal" class="closed"> --> 
-        <!-- need fix - youseop -->
+      <div id="manage-modal-container" class="closed">
         <div id="manage-modal-background">
           <div class="admin-title">
             <div>입점 브랜드 추가</div>    
@@ -45,8 +43,15 @@
               <input type="checkbox" id="isBrandedCheckBox" />
             </label>
 
+            <br>
+            <span class="gray-text">
+              입점 브랜드 카테고리
+            </span>
             <div class="dropdown closed">
-              <div id="category-title">카테고리 <span>∆</span></div>
+              <div id="category-title">
+                카테고리 
+                <img src="asset/icon_select_arrow.svg" alt="logo" class="close-admin" />
+              </div>
               <ul id="category-menu">
                 <li id="man-clothes">남성의류</li>
                 <li id="man-accesery">남성악세사리</li>
@@ -55,9 +60,10 @@
 
             <div id="category-list"></div>
 
-            <div id="submit-button">submit</div>
-
-            <div id="cancel-button">취소</div>
+            <div class="category-button-container">
+              <span id="cancel-button">취소</span>
+              <span id="submit-button">입점 브랜드 추가</span>
+            </div>
             <div id="id-for-edit"></div>
           </div>
         </div>
@@ -114,7 +120,7 @@
 
         <div class="inner-container">
 
-          <div class="search-container">
+          <div class="search-container" id="search-container">
             <form class="search-form" id="search-form">
               <img src="asset/icon_search.svg" alt="admin" id="search-icon"/>
               <input 
@@ -128,10 +134,11 @@
 
           <div class="category-container">
             <div id="user-category-list" class="total">
-              <div id="total" class="clicked">전체</div>
-              <div id='man-clothes'>남성의류</div>
-              <div id="man-shose">남성슈즈</div>
-              <div id="man-accesery">남성악세서리</div>
+              <span id="total" class="clicked">전체</span>
+              <span id='man-clothes'>남성의류</span>
+              <span id="man-shose">남성신발</span>
+              <span id="man-accesery">남성악세서리</span>
+              <span id='beauty'>뷰티</span>
             </div>
           </div>
             
@@ -166,6 +173,24 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="side-bar">
+          <img src="asset/icon_star.svg" alt="logo" class="star-icon" id="star-icon">
+          <div id="가_link">가</div>
+          <div id="나_link">나</div>
+          <div id="다_link">다</div>
+          <div id="라_link">라</div>
+          <div id="마_link">마</div>
+          <div id="바_link">바</div>
+          <div id="사_link">사</div>
+          <div id="아_link">아</div>
+          <div id="자_link">자</div>
+          <div id="차_link">차</div>
+          <div id="카_link">카</div>
+          <div id="타_link">타</div>
+          <div id="파_link">파</div>
+          <div id="하_link">하</div>
         </div>
       </div>
     </div>

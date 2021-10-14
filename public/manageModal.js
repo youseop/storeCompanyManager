@@ -157,11 +157,13 @@ export function getInputFieldManager() {
       brandUrlElem.innerText = brandurl;
       isBrandedCheckBox.checked = isbranded === "true";
 
-      const categoryIds = tags.split(",");
-      categoriesModel.resetCategories();
-      for (const categoryId of categoryIds) {
-        if (categoryId.length > 0) {
-          categoriesModel.addCompany(categoryId);
+      if(tags){
+        const categoryIds = tags.split(",");
+        categoriesModel.resetCategories();
+        for (const categoryId of categoryIds) {
+          if (categoryId.length > 0) {
+            categoriesModel.addCompany(categoryId);
+          }
         }
       }
 
