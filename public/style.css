@@ -1,25 +1,25 @@
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Pretendard, Roboto, 'Noto Sans KR', 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   font-size: 12px;
   all: unset;
 
-  -ms-user-select: none; 
+  -ms-user-select: none;
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
 
-input[type=text] {
+input[type="text"] {
   all: unset;
 }
 
-input[type=submit] {
+input[type="submit"] {
   all: unset;
 }
 
-input[type=password] {
+input[type="password"] {
   all: unset;
 }
 
@@ -27,17 +27,17 @@ ul {
   all: unset;
 }
 
-.wrapper-container{
+.wrapper-container {
   width: 100vw;
   max-width: 500px;
   min-height: 100vh;
   padding-bottom: 100px;
-  margin: auto;  
+  margin: auto;
   box-shadow: 0px 0px 3px 3px rgb(219, 219, 219);
 }
 
 /* title-container */
-.title-container{
+.title-container {
   height: 54px;
   padding: 0 20px;
   padding-top: 5px;
@@ -48,14 +48,14 @@ ul {
   border-bottom: 1.5px solid;
 }
 
-.title-img{  
+.title-img {
   width: 83.6px;
   height: 23.1px;
   margin: 0px 0.3px 0.3px 0;
   cursor: pointer;
 }
 
-.title-container #admin-button{
+.title-container #admin-button {
   height: 18px;
   width: 18px;
   cursor: pointer;
@@ -69,17 +69,17 @@ ul {
   display: none;
 }
 
-.close-admin{
+.close-admin {
   cursor: pointer;
 }
 
 /* inner-container */
-.inner-container{
-  margin: 17px 20px;  
+.inner-container {
+  margin: 17px 20px;
 }
 
 /* search-container */
-.search-container{ 
+.search-container {
   background-color: #f7f7f7;
   height: 20px;
   color: #767676;
@@ -90,23 +90,23 @@ ul {
   margin-bottom: 20px;
 }
 
-.search-form{
+.search-form {
   width: 100%;
   display: flex;
   padding-top: 3px;
 }
 
-.search-input{
+.search-input {
   min-width: 300px;
   flex: 1;
   color: #767676;
 }
 
-#search-input-field{
+#search-input-field {
   margin-left: 12px;
 }
 
-#search-icon{
+#search-icon {
   width: 14px;
   height: 14px;
   padding-right: 8px;
@@ -115,13 +115,13 @@ ul {
 }
 
 /* category-container */
-.category-container{
+.category-container {
   width: 100%;
 }
 
-.category-container #user-category-list{
+.category-container #user-category-list {
   overflow: scroll;
-  white-space:nowrap;
+  white-space: nowrap;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -131,7 +131,7 @@ ul {
   display: none; /* Chrome, Safari, Opera*/
 }
 
-#user-category-list span{
+#user-category-list span {
   cursor: pointer;
   background-color: #f7f7f7;
   color: #767676;
@@ -150,23 +150,23 @@ ul {
 }
 
 /* branded-title */
-.category-tag{
+.category-tag {
   font-size: 25px;
   font-weight: bold;
   margin-top: 43px;
   margin-bottom: 7px;
 }
 
-.category-tag#branded{
+.category-tag#branded {
   margin-top: 35px;
 }
 
 /* company */
-#companies-container{
+#companies-container {
   width: calc(100% - 50px);
 }
 
-.company{
+.company {
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -174,31 +174,31 @@ ul {
   border-bottom: 1px solid #cbcbcb;
 }
 
-.company .company-link-common{
+.company .company-link-common {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.company .company-link-common #eng-name{
+.company .company-link-common #eng-name {
   color: #adadad;
   margin-left: 3px;
   font-size: 9px;
 }
 
-.company-link-common{
+.company-link-common {
   display: flex;
   justify-content: space-between;
   padding-right: 10px;
 }
 
-.link-icon{
+.link-icon {
   width: 7px;
   height: 10px;
 }
 
-.admin-mode .arrow{
+.admin-mode .arrow {
   display: none;
 }
 
@@ -214,7 +214,7 @@ ul {
   cursor: pointer;
 }
 
-img.edit{
+img.edit {
   width: 24px;
   height: 24px;
   padding: 8px;
@@ -223,7 +223,7 @@ img.edit{
 }
 
 /* add-button-container */
-#add-button-container{
+#add-button-container {
   height: 40px;
   border-top: 1px solid #cbcbcb;
   border-bottom: 1px solid #cbcbcb;
@@ -233,13 +233,13 @@ img.edit{
   transform: translate(0, 20px);
 }
 
-#plus-icon{
+#plus-icon {
   width: 11px;
   height: 11px;
   padding-right: 4px;
 }
 
-#add-button{
+#add-button {
   width: 120px;
   height: 24px;
   background-color: black;
@@ -254,7 +254,7 @@ img.edit{
 }
 
 /* manage-modal */
-#manage-modal-container{
+#manage-modal-container {
   position: fixed;
   transform: translate(calc(-51%), 0);
   left: 50vw;
@@ -268,13 +268,13 @@ img.edit{
   z-index: 10;
 }
 
-@media screen and (max-width: 500px){
-  #manage-modal-container{
+@media screen and (max-width: 500px) {
+  #manage-modal-container {
     transform: translate(calc(-50%), 0);
   }
 }
 
-#manage-modal-background{
+#manage-modal-background {
   width: 335px;
   height: 600px;
   background-color: white;
@@ -289,17 +289,17 @@ img.edit{
   display: none; /* Chrome, Safari, Opera*/
 }
 
-.manage-modal-body{
+.manage-modal-body {
   margin: 15px;
 }
 
-.gray-text{
+.gray-text {
   color: #767676;
   font-size: 12px;
 }
 
-.manage-modal-input-field{
-  width:calc(100% - 5px);
+.manage-modal-input-field {
+  width: calc(100% - 5px);
   height: 30px;
   border: solid 1px #ccc;
   margin-top: 4px;
@@ -310,7 +310,7 @@ img.edit{
   color: #767676;
 }
 
-#isBrandedCheckBox{
+#isBrandedCheckBox {
   width: 15px;
   height: 15px;
   transform: translateY(1px);
@@ -333,16 +333,16 @@ img.edit{
   z-index: 1;
 }
 
-#check-admin-container-button{
+#check-admin-container-button {
   cursor: pointer;
   width: 100%;
   background-color: black;
   color: white;
-  height: 40px;  
+  height: 40px;
   margin-top: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
@@ -353,11 +353,11 @@ img.edit{
   width: 48%;
   background-color: #767676;
   color: white;
-  height: 40px;  
+  height: 40px;
   margin-top: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
@@ -368,23 +368,23 @@ img.edit{
   width: 48%;
   background-color: black;
   color: white;
-  height: 40px;  
+  height: 40px;
   margin-top: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
 }
 
-.category-button-container{
+.category-button-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#password-form{
+#password-form {
   width: 100%;
 }
 
@@ -392,30 +392,30 @@ img.edit{
   display: none;
 }
 
-#check-admin-background{
+#check-admin-background {
   width: 335px;
   height: 217px;
   background-color: white;
 }
 
-.admin-title{
+.admin-title {
   height: 35px;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:16px;
+  padding: 16px;
   border-bottom: 1px solid #cbcbcb;
 }
 
-.check-admin-body{
+.check-admin-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 15px;
 }
 
-.password-title{
+.password-title {
   display: flex;
   align-items: flex-end;
   color: #767676;
@@ -423,13 +423,13 @@ img.edit{
   width: 100%;
   font-size: 12px;
   padding-bottom: 3px;
-  font-size: 14px;  
+  font-size: 14px;
   font-family: Pretendard;
 }
 
-#check-admin-input-field{
+#check-admin-input-field {
   width: calc(100% - 13px);
-  height: 20px;  
+  height: 20px;
   border: 1px solid #cbcbcb;
   padding: 10px 5px;
 }
@@ -454,59 +454,59 @@ img.edit{
   display: none;
 }
 
-#delete-admin-background{
+#delete-admin-background {
   width: 335px;
   height: 217px;
   background-color: white;
 }
 
-.delete-admin-title{
+.delete-admin-title {
   color: #a02121;
   height: 32px;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:16px;
+  padding: 16px;
   border-bottom: 1px solid #cbcbcb;
 }
 
-.delete-admin-body{
+.delete-admin-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 15px;
 }
 
-.delete-warning{
+.delete-warning {
   font-size: 16px;
-  width: 100%;  
+  width: 100%;
   line-height: 1.64;
 }
 
-#delete-admin-input-field{
+#delete-admin-input-field {
   width: 100%;
-  height: 20px;  
+  height: 20px;
   border: 1px solid #cbcbcb;
   padding: 10px 5px;
 }
 
-#delete-admin-container-button{
+#delete-admin-container-button {
   width: 100%;
   background-color: #a02121;
   color: white;
-  height: 40px;  
+  height: 40px;
   margin-top: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
 }
 
-.red-text{
+.red-text {
   color: #a02121;
   font-weight: bold;
 }
@@ -523,7 +523,7 @@ img.edit{
   padding: 13px;
 }
 
-#category-list div{
+#category-list div {
   cursor: pointer;
   background-color: #f7f7f7;
   height: 35px;
@@ -543,7 +543,7 @@ img.edit{
   justify-content: center;
 }
 
-.delete-category{
+.delete-category {
   width: 20px;
   height: 20px;
 }
@@ -579,7 +579,7 @@ img.edit{
 }
 
 /* branded-info */
-.branded-info{
+.branded-info {
   font-family: Pretendard;
   margin-top: 300px;
   padding-top: 15px;
@@ -587,25 +587,25 @@ img.edit{
   border-top: 1px solid #cbcbcb;
 }
 
-.info-text-container{
+.info-text-container {
   font-size: 10px;
   margin-bottom: 8px;
 }
 
-.info-text-container.first-child{
+.info-text-container.first-child {
   margin-bottom: 9px;
 }
 
-.gray-text{
+.gray-text {
   color: #6a6a6a;
 }
 
-.textarea-with-width{
+.textarea-with-width {
   display: inline-block;
   width: 145px;
 }
 
-.side-bar{
+.side-bar {
   width: 18px;
   height: 200px;
   position: fixed;
@@ -616,24 +616,21 @@ img.edit{
   align-items: center;
   z-index: 0;
 }
-@media screen and (max-width: 500px){
-  .side-bar{
+@media screen and (max-width: 500px) {
+  .side-bar {
     right: calc(20px);
   }
 }
 
-
-.star-icon{
+.star-icon {
   width: 25px;
   height: 25px;
 }
 
-.side-bar div{
+.side-bar div {
   color: #cccccc;
   padding-top: 5px;
   font-size: 13px;
-
-
 }
 
 /* drop down script */

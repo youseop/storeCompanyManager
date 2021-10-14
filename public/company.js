@@ -8,25 +8,25 @@ function showCompanies(companies) {
   showCompaniesAlignedByKor(companies);
 }
 
-function showCompaniesAlignedByKor(companies){
+function showCompaniesAlignedByKor(companies) {
   const alignedCompaniesByCho = alignCompaniesByCho(companies);
-  for (const cho of Cho){
+  for (const cho of Cho) {
     const companiesInCho = alignedCompaniesByCho[cho];
-    if(companiesInCho){
+    if (companiesInCho) {
       addKoreanCategoryTitle(cho);
-      for (const company of companiesInCho){
+      for (const company of companiesInCho) {
         showCompany(company);
       }
     }
   }
 }
 
-function alignCompaniesByCho(companies){
+function alignCompaniesByCho(companies) {
   const alignedCompaniesByCho = {};
-  for (const company of companies){
+  for (const company of companies) {
     const chosung = findHangul(company.korName);
-    if(chosung){
-      if(alignedCompaniesByCho[chosung] === undefined){
+    if (chosung) {
+      if (alignedCompaniesByCho[chosung] === undefined) {
         alignedCompaniesByCho[chosung] = [];
       }
       alignedCompaniesByCho[chosung].push(company);
@@ -35,40 +35,40 @@ function alignCompaniesByCho(companies){
   return alignedCompaniesByCho;
 }
 
-function showBrandedCompanies (companies) {
+function showBrandedCompanies(companies) {
   const categoryTag = `
     <div class="category-tag" id="branded">
       브랜디드 인더스트리
     </div>
-    `
-  const starIcon = document.getElementById('star-icon');
-  starIcon.addEventListener('click', addBrandedSidebarLink);
-  starIcon.addEventListener('mouseenter', addBrandedSidebarLink);
+    `;
+  const starIcon = document.getElementById("star-icon");
+  starIcon.addEventListener("click", addBrandedSidebarLink);
+  starIcon.addEventListener("mouseenter", addBrandedSidebarLink);
 
-  const brandedCompanies = companies.filter(company=>company.isBranded);
-  if(brandedCompanies.length > 0){
-    companyList.insertAdjacentHTML("beforeend",categoryTag);
+  const brandedCompanies = companies.filter((company) => company.isBranded);
+  if (brandedCompanies.length > 0) {
+    companyList.insertAdjacentHTML("beforeend", categoryTag);
   } else {
     return;
   }
-  for (const company of brandedCompanies){
+  for (const company of brandedCompanies) {
     showCompany(company);
   }
 }
 
-function addKoreanCategoryTitle (cho){
+function addKoreanCategoryTitle(cho) {
   const char = getCharFromCho(cho);
   const categoryTag = `
     <div class="category-tag" id="${char}">
       ${char}
     </div>
-    `
-  companyList.insertAdjacentHTML("beforeend",categoryTag);
+    `;
+  companyList.insertAdjacentHTML("beforeend", categoryTag);
   const charElem = document.getElementById(`${char}_link`);
-  if(charElem){
-    charElem.addEventListener('click', addSidebarLink);
-    charElem.addEventListener('mouseenter', addSidebarLink);
-    charElem.addEventListener('touchstart', addSidebarLink);
+  if (charElem) {
+    charElem.addEventListener("click", addSidebarLink);
+    charElem.addEventListener("mouseenter", addSidebarLink);
+    charElem.addEventListener("touchstart", addSidebarLink);
   }
 }
 
@@ -107,10 +107,10 @@ export function showCompany(company) {
   companyList.insertAdjacentHTML("beforeend", elem);
 }
 
-export function editCompany(company){
+export function editCompany(company) {
   const companyId = company._id;
   const companyElem = document.getElementById(companyId);
-  if (companyElem){
+  if (companyElem) {
     companyElem.dataset.korname = company.korName;
     companyElem.dataset.engname = company.engName;
     companyElem.dataset.brandurl = company.brandUrl;
@@ -120,11 +120,11 @@ export function editCompany(company){
     const linkTag = companyElem.children[1];
     linkTag.href = company.brandUrl;
     linkTag.title = company.korName;
-    
-    const korNameElem = linkTag.children['kor-name'];
+
+    const korNameElem = linkTag.children["kor-name"];
     korNameElem.innerText = company.korName;
-    
-    const engNameElem = linkTag.children['eng-name'];
+
+    const engNameElem = linkTag.children["eng-name"];
     engNameElem.innerText = company.engName;
   } else {
     console.log("should edit company but can't find company element.");
@@ -139,30 +139,34 @@ function updateCompanies(companies) {
   showCompanies(companies);
 }
 
-function getCompanyManager(){
+function getCompanyManager() {
   let totalCompanies = [];
   return {
-    resetCompaniesInCategory:(categoryId)=>{
-      const companiesInCategory = totalCompanies.filter(company => {
+    resetCompaniesInCategory: (categoryId) => {
+      const companiesInCategory = totalCompanies.filter((company) => {
         return company.tags.includes(categoryId);
       });
       updateCompanies(companiesInCategory);
     },
-    setCompanies: (companies)=>{
-      totalCompanies = companies.sort((firstElem,secondElem)=>firstElem.korName >= secondElem.korName);
+    setCompanies: (companies) => {
+      totalCompanies = companies.sort(
+        (firstElem, secondElem) => firstElem.korName >= secondElem.korName
+      );
       updateCompanies(totalCompanies);
     },
-    addCompany: (company)=>{
+    addCompany: (company) => {
       totalCompanies.push(company);
-      totalCompanies = totalCompanies.sort((firstElem,secondElem)=>firstElem.korName >= secondElem.korName);
+      totalCompanies = totalCompanies.sort(
+        (firstElem, secondElem) => firstElem.korName >= secondElem.korName
+      );
       updateCompanies(totalCompanies);
     },
     resetCompanies: () => {
       updateCompanies(totalCompanies);
     },
     editCompany: (editedCompany) => {
-      for (let company of totalCompanies){
-        if(company._id === editedCompany._id){
+      for (let company of totalCompanies) {
+        if (company._id === editedCompany._id) {
           company.engName = editedCompany.engName;
           company.korName = editedCompany.korName;
           company.brandUrl = editedCompany.brandUrl;
@@ -172,28 +176,33 @@ function getCompanyManager(){
       }
       updateCompanies(totalCompanies);
     },
-    deleteCompany: (targetId)=>{
+    deleteCompany: (targetId) => {
       const companyList = document.getElementById("company-list");
       const targetElement = document.getElementById(targetId);
       companyList.removeChild(targetElement);
 
-      totalCompanies = totalCompanies.filter(company => company._id !== targetId);
+      totalCompanies = totalCompanies.filter(
+        (company) => company._id !== targetId
+      );
       updateCompanies(totalCompanies);
     },
-    getTotalCompanies: ()=>{
+    getTotalCompanies: () => {
       return totalCompanies;
     },
     searchCompany: (keyWord) => {
       const LoweredKeyWord = keyWord.toLowerCase();
-      const searchedCompanies = totalCompanies.filter(company => {
-        if(company.engName.toLowerCase().indexOf(keyWord)>=0 || company.korName.indexOf(keyWord)>=0){
+      const searchedCompanies = totalCompanies.filter((company) => {
+        if (
+          company.engName.toLowerCase().indexOf(keyWord) >= 0 ||
+          company.korName.indexOf(keyWord) >= 0
+        ) {
           return true;
         }
         return false;
-      })
+      });
       updateCompanies(searchedCompanies);
-    }
-  }
+    },
+  };
 }
 
 export const companyManager = getCompanyManager();

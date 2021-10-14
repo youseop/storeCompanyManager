@@ -11,22 +11,24 @@ export function setButtonEventOfManageModal() {
   const addButton = document.getElementById("add-button");
   const cancelButton = document.getElementById("cancel-button");
   const adminButton = document.getElementById("admin-button");
-  const passwordForm = document.getElementById(
-    "password-form"
+  const passwordForm = document.getElementById("password-form");
+  const deleteButton = document.getElementById("delete-admin-container-button");
+  const manageModalCloseButton = document.getElementById(
+    "close-manage-modal-button"
   );
-  const deleteButton = document.getElementById('delete-admin-container-button');
-  const manageModalCloseButton = document.getElementById('close-manage-modal-button');
-  
-  addButton.addEventListener("click", ()=>{displayManageModal()});
+
+  addButton.addEventListener("click", () => {
+    displayManageModal();
+  });
   cancelButton.addEventListener("click", closeManageModal);
   adminButton.addEventListener("click", toggleAdminMode);
-  deleteButton.addEventListener('click', ()=>{
+  deleteButton.addEventListener("click", () => {
     const targetId = deleteButton.className;
     deleteCompanyAndUpdate(targetId);
     closeDeleteContainer();
   });
-  manageModalCloseButton.addEventListener('click', closeManageModal);
-  modalManageContainer.addEventListener('click', closeManageModal);
+  manageModalCloseButton.addEventListener("click", closeManageModal);
+  modalManageContainer.addEventListener("click", closeManageModal);
 
   const closeDeleteAdminButton = document.getElementById(
     "close-delete-admin-container-button"
@@ -34,9 +36,9 @@ export function setButtonEventOfManageModal() {
   closeDeleteAdminButton.addEventListener("click", () => {
     closeDeleteContainer();
   });
-  deleteAdminContainer.addEventListener('click',()=>{
+  deleteAdminContainer.addEventListener("click", () => {
     closeDeleteContainer();
-  })
+  });
 
   const closeAdminButton = document.getElementById(
     "close-admin-container-button"
@@ -52,11 +54,15 @@ export function setButtonEventOfManageModal() {
   adminBackground.addEventListener("click", (e) => {
     e.stopPropagation();
   });
-  const deleteAdminBackground = document.getElementById("delete-admin-background");
+  const deleteAdminBackground = document.getElementById(
+    "delete-admin-background"
+  );
   deleteAdminBackground.addEventListener("click", (e) => {
     e.stopPropagation();
   });
-  const manageModalBackground = document.getElementById("manage-modal-background");
+  const manageModalBackground = document.getElementById(
+    "manage-modal-background"
+  );
   manageModalBackground.addEventListener("click", (e) => {
     e.stopPropagation();
   });
@@ -114,7 +120,7 @@ function toggleAdminMode() {
 
 function closeAdminContainer() {
   const pwdInput = document.getElementById("check-admin-input-field");
-  pwdInput.value='';
+  pwdInput.value = "";
   checkAdminContainer.classList.add("closed");
 }
 
@@ -157,7 +163,7 @@ export function getInputFieldManager() {
       brandUrlElem.innerText = brandurl;
       isBrandedCheckBox.checked = isbranded === "true";
 
-      if(tags){
+      if (tags) {
         const categoryIds = tags.split(",");
         categoriesModel.resetCategories();
         for (const categoryId of categoryIds) {
@@ -182,5 +188,3 @@ function checkValue(text) {
   }
   return true;
 }
-
-
