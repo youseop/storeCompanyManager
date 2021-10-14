@@ -1,5 +1,5 @@
 import { addBrandedSidebarLink, addSidebarLink } from "./sidebar.js";
-import { findHangul, getCharFromCho } from "./word.js";
+import { findHangul, getCharFromCho, Cho } from "./word.js";
 
 const companyList = document.getElementById("company-list");
 
@@ -10,11 +10,13 @@ function showCompanies(companies) {
 
 function showCompaniesAlignedByKor(companies){
   const alignedCompaniesByCho = alignCompaniesByCho(companies);
-  for (const cho in alignedCompaniesByCho){
-    addKoreanCategoryTitle(cho);
-    const companies = alignedCompaniesByCho[cho];
-    for (const company of companies){
-      showCompany(company);
+  for (const cho of Cho){
+    const companiesInCho = alignedCompaniesByCho[cho];
+    if(companiesInCho){
+      addKoreanCategoryTitle(cho);
+      for (const company of companiesInCho){
+        showCompany(company);
+      }
     }
   }
 }
