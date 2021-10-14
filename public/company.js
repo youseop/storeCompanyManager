@@ -43,6 +43,7 @@ function showBrandedCompanies (companies) {
     `
   const starIcon = document.getElementById('star-icon');
   starIcon.addEventListener('click', addBrandedSidebarLink);
+  starIcon.addEventListener('mouseenter', addBrandedSidebarLink);
 
   const brandedCompanies = companies.filter(company=>company.isBranded);
   if(brandedCompanies.length > 0){
@@ -66,6 +67,7 @@ function addKoreanCategoryTitle (cho){
   const charElem = document.getElementById(`${char}_link`);
   if(charElem){
     charElem.addEventListener('click', addSidebarLink);
+    charElem.addEventListener('mouseenter', addSidebarLink);
     charElem.addEventListener('touchstart', addSidebarLink);
   }
 }
