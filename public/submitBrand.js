@@ -5,7 +5,7 @@ import { checkEng, checkKor } from "./word.js";
 
 export function initSubmitBrand() {
   const submitButton = document.getElementById("submit-button");
-  submitButton.addEventListener("click", (e)=>submitBrand(e));
+  submitButton.addEventListener("click", (e) => submitBrand(e));
 }
 
 function submitBrand(e) {
@@ -15,17 +15,17 @@ function submitBrand(e) {
   if (inputFieldValues === undefined) {
     return;
   }
-  if (!checkKor(inputFieldValues.korName[0])){
-    alert('한글 표기가 잘못되었습니다.')
+  if (!checkKor(inputFieldValues.korName[0])) {
+    alert("한글 표기가 잘못되었습니다.");
     return;
   }
-  if (!checkEng(inputFieldValues.engName[0])){
-    alert('영어 표기가 잘못되었습니다.')
+  if (!checkEng(inputFieldValues.engName[0])) {
+    alert("영어 표기가 잘못되었습니다.");
     return;
   }
   inputFieldManager.resetValues();
-  if(targetClassList.contains(EDIT)){
-    const targetIdField = document.getElementById('id-for-edit');
+  if (targetClassList.contains(EDIT)) {
+    const targetIdField = document.getElementById("id-for-edit");
     const targetId = targetIdField.innerHTML;
     editComapniesAndUpdate(inputFieldValues, targetId);
   } else {

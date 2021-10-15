@@ -10,7 +10,7 @@ const mapCategoryIdToText = {
   "man-clothes": "남성의류",
   "man-accesery": "남성악세사리",
   "man-shose": "남성신발",
-  "beauty": "뷰티",
+  beauty: "뷰티",
 };
 
 function initCategories() {
@@ -65,7 +65,7 @@ export function categoryInit() {
     const target = e.target;
     if (target.id === "category-list") {
       return;
-    } else if(target.className==='delete-category'){
+    } else if (target.className === "delete-category") {
       categoriesModel.removeCompany(e.target.parentElement);
     } else {
       categoriesModel.removeCompany(target);
