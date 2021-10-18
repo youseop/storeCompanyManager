@@ -7,6 +7,9 @@ import { categoryInit } from "./category.js";
 import { initSubmitBrand } from "./submitBrand.js";
 import { DELETE, EDIT } from "./constant.js";
 import { initSearchForm } from "./search.js";
+import pannel from './fps_panel.js';
+
+// pannel.init();
 
 categoryInit();
 initSubmitBrand();
