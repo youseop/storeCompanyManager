@@ -3,12 +3,6 @@ body {
     Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   font-size: 12px;
   all: unset;
-
-  /* -ms-user-select: none; 
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none; */
 }
 
 input[type="text"] {
@@ -683,4 +677,12 @@ a {
 }
 .dropdown.closed #category-title img {
   transform: rotate(180deg);
+}
+
+#outer-container{
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
