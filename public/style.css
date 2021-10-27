@@ -84,6 +84,8 @@ ul {
   padding: 8px 10px;
   font-size: 14px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .search-form {
@@ -92,10 +94,12 @@ ul {
   padding-top: 3px;
 }
 
-.search-input {
-  min-width: 300px;
+.search-form .search-input {
+  width: 100%;
   flex: 1;
   color: #767676;
+  transition-property: color;
+  transition-duration: 0.3s;
 }
 
 #search-input-field {
@@ -118,13 +122,19 @@ ul {
 }
 
 .category-container #user-category-list {
-  padding-right: 20px;
-  width: calc(100vw - 37px);
-  overflow: scroll;
+  padding-right: 8px;
+  width: calc(100vw - 40px);
+  max-width: 450px;
+  overflow:scroll;
   white-space: nowrap;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+@media ( max-width: 768px ) {
+  .category-container #user-category-list {
+    padding-right:20px;
+  }
 }
 
 #user-category-list::-webkit-scrollbar {
@@ -699,4 +709,50 @@ a {
 
 .button-wrapper.right{
   padding: 10px 0px 10px 10px;
+}
+
+/* delete-input-text */
+#delete-input-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 5px;
+  background-color: white;
+  transition-property: transform opacity;
+  transition-duration: 0.3s;
+  transform: translateX(20px);
+}
+
+#delete-input-text.display{
+  height: 40px;
+  width: 40px;
+  transform: translateX(10px);
+  transition-property: transform opacity;
+  transition-duration: 0.3s;
+}
+
+#delete-input-text #delete-input-text-button{
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transition-property: transform opacity;
+  transition-duration: 0.3s;
+}
+
+#delete-input-text.display #delete-input-text-button{
+  opacity: 1;
+  transition-property: transform opacity;
+  transition-duration: 0.3s;
+}
+
+#search-input:focus::-webkit-input-placeholder{
+  color:transparent; 
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+#search-input:focus::-moz-placeholder{
+  color:transparent; 
+  transition-property: color;
+  transition-duration: 0.3s;
 }
