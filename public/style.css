@@ -1,8 +1,7 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    Pretendard, Roboto, "Noto Sans KR", "Segoe UI", "Malgun Gothic", sans-serif;
   font-size: 12px;
   all: unset;
+  font-family: Pretendard;
 }
 
 input[type="text"] {
@@ -312,7 +311,6 @@ img.edit {
   margin-bottom: 15px;
   padding-top: 10px;
   padding-left: 5px;
-  font-family: Pretendard;
   color: #767676;
 }
 
@@ -429,7 +427,6 @@ img.edit {
   font-size: 12px;
   padding-bottom: 3px;
   font-size: 14px;
-  font-family: Pretendard;
 }
 
 #check-admin-input-field {
@@ -584,7 +581,6 @@ img.edit {
 
 /* branded-info */
 .branded-info {
-  font-family: Pretendard;
   margin-top: 300px;
   padding-top: 15px;
   width: 100%;
