@@ -15,14 +15,27 @@ const Cho = [
   "하",
 ];
 
+let prevTargetId = 'star-icon';
+
+function changeTarget (target){
+  document.getElementById(`${prevTargetId}`).className = '';
+  prevTargetId = target.id;
+  target.className = 'focused'
+}
+
 export function addSidebarLink(e) {
-  const targetId = e.target.id;
-  const cho = targetId.split("_")[0];
+  const target = e.target;
+  changeTarget(target)
+  const cho = target.id.split("_")[0];
   document.getElementById(cho).scrollIntoView();
 }
 
-export function addBrandedSidebarLink() {
-  document.getElementById("branded").scrollIntoView();
+export function addBrandedSidebarLink(e) {
+  const target = e.target;
+  changeTarget(target)
+  const brandedElem = document.getElementById("branded");
+  brandedElem.scrollIntoView();
+  brandedElem.className = 'focused'
 }
 
 export function resetSidebarLink() {

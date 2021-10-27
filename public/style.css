@@ -632,15 +632,23 @@ img.edit {
   }
 }
 
-.star-icon {
+#star-icon {
   width: 25px;
   height: 25px;
+}
+
+#star-icon.focused {
+  filter: invert(46%) sepia(0%) saturate(0%) hue-rotate(185deg) brightness(100%) contrast(86%);
 }
 
 .side-bar div {
   color: #cccccc;
   padding-top: 5px;
   font-size: 13px;
+}
+
+.side-bar div.focused {
+  color:#767676;
 }
 
 /* drop down script */
