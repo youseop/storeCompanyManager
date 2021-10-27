@@ -9,8 +9,6 @@ import { DELETE, EDIT } from "./constant.js";
 import { initSearchForm } from "./search.js";
 import pannel from './fps_panel.js';
 
-// pannel.init();
-
 categoryInit();
 initSubmitBrand();
 initSearchForm();
@@ -28,15 +26,17 @@ function setEventDeligation() {
 
   todoList.addEventListener("click", (e) => {
     const target = e.target;
-    const targetId = target.parentElement.id;
+    const brandId = target.parentElement.id;
     switch (target.className) {
       case EDIT:
         const dataForEdit = e.target.parentNode.dataset;
-        displayManageModal(dataForEdit, targetId);
+        displayManageModal(dataForEdit, brandId);
         break;
       case DELETE:
         deleteModal.classList.remove("closed");
-        deleteButton.className = targetId;
+        deleteButton.className = brandId;
+        const brandName = target.parentElement.dataset.korname;
+        document.getElementById('brand-will-delete').innerText = brandName
         break;
       default:
         break;
