@@ -10,13 +10,21 @@ function showCompanies(companies) {
 
 function showCompaniesAlignedByKor(companies) {
   const alignedCompaniesByCho = alignCompaniesByCho(companies);
+  const ElemArray = [];
   for (const cho of Cho) {
     const companiesInCho = alignedCompaniesByCho[cho];
     if (companiesInCho) {
-      addKoreanCategoryTitle(cho);
-      for (const company of companiesInCho) {
-        showCompany(company);
-      }
+      ElemArray.push(getKoreanCategoryTitleElem(cho));
+      ElemArray.push(...companiesInCho.map(getCompanyElem));
+    }
+  }
+  companyList.insertAdjacentHTML("beforeend", 
+    ElemArray.join('')
+  )
+
+  for (const cho of Cho) {
+    if (alignedCompaniesByCho[cho]) {
+      addKoreanCategoryTitleEvent(cho);
     }
   }
 }
@@ -51,19 +59,22 @@ function showBrandedCompanies(companies) {
   } else {
     return;
   }
-  for (const company of brandedCompanies) {
-    showCompany(company);
-  }
+  companyList.insertAdjacentHTML("beforeend", 
+    brandedCompanies.map(getCompanyElem).join('')
+  )
 }
 
-function addKoreanCategoryTitle(cho) {
+function getKoreanCategoryTitleElem(cho) {
   const char = getCharFromCho(cho);
-  const categoryTag = `
+  return `
     <div class="category-tag" id="${char}">
       ${char}
     </div>
     `;
-  companyList.insertAdjacentHTML("beforeend", categoryTag);
+}
+
+function addKoreanCategoryTitleEvent(cho) {
+  const char = getCharFromCho(cho);
   const charElem = document.getElementById(`${char}_link`);
   if (charElem) {
     charElem.addEventListener("click", addSidebarLink);
@@ -72,7 +83,7 @@ function addKoreanCategoryTitle(cho) {
   }
 }
 
-export function showCompany(company) {
+export function getCompanyElem(company) {
   const elem = `
   <li 
     class='company'
@@ -104,7 +115,7 @@ export function showCompany(company) {
     </div>
     <img src="asset/icon_x.svg" alt="logo" class="delete"/>
   </li>`;
-  companyList.insertAdjacentHTML("beforeend", elem);
+  return elem;
 }
 
 export function editCompany(company) {

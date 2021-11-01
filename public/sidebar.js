@@ -27,7 +27,8 @@ export function addSidebarLink(e) {
   const target = e.target;
   changeTarget(target)
   const cho = target.id.split("_")[0];
-  document.getElementById(cho).scrollIntoView();
+  window.scroll(0, target.offsetTop + 150)
+  // document.getElementById(cho).scrollIntoView();
 }
 
 export function addBrandedSidebarLink(e) {
