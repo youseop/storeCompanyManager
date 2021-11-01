@@ -27,15 +27,14 @@ export function addSidebarLink(e) {
   const target = e.target;
   changeTarget(target)
   const cho = target.id.split("_")[0];
-  window.scroll(0, target.offsetTop + 150)
-  // document.getElementById(cho).scrollIntoView();
+  window.scroll(0,  target.getBoundingClientRect().top + 50)
 }
 
 export function addBrandedSidebarLink(e) {
   const target = e.target;
   changeTarget(target)
   const brandedElem = document.getElementById("branded");
-  brandedElem.scrollIntoView();
+  window.scroll(0,  brandedElem.getBoundingClientRect().top + 50)
   brandedElem.className = 'focused'
 }
 
