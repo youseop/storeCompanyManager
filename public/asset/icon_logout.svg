@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <defs>
         <style>
-            .cls-2{fill:#767676}
+            .cls-2{fill:#fff}
         </style>
     </defs>
-    <g id="그룹_2650" data-name="그룹 2650" transform="translate(-265 -27)">
-        <path id="사각형_1807" data-name="사각형 1807" transform="translate(265 27)" style="fill:none" d="M0 0h24v25H0z"/>
-        <g id="그룹_2649" data-name="그룹 2649" transform="translate(287 -95.792)">
-            <path id="Path" class="cls-2" d="M0 1.843h11.055V0H0z" transform="translate(-12.814 134.371)"/>
-            <path id="_Color" data-name="↳Color" class="cls-2" d="M1 0 0 1l3.243 3.255L0 7.51l1 1 4.248-4.255z" transform="translate(-5.248 131.037)"/>
-            <path id="_Color-2" data-name="↳Color" class="cls-2" d="M11.189 16.583H1.722A1.787 1.787 0 0 1 0 14.741V1.843A1.788 1.788 0 0 1 1.722 0h9.467a1.787 1.787 0 0 1 1.721 1.843v2.764h-1.721V1.843H1.722v12.9h9.467v-2.766h1.721v2.764a1.787 1.787 0 0 1-1.721 1.842z" transform="translate(-20 127)"/>
+    <g id="그룹_2762" data-name="그룹 2762" transform="translate(-108 -96)">
+        <rect id="사각형_1836" data-name="사각형 1836" width="24" height="24" rx="4" transform="translate(108 96)" style="fill:#e3e3e3"/>
+        <g id="그룹_2763" data-name="그룹 2763" transform="translate(132.176 -26.317)">
+            <path id="Path" class="cls-2" d="M0 1.626h9.756V0H0z" transform="translate(-13.659 133.504)"/>
+            <path id="_Color" data-name="↳Color" class="cls-2" d="M.881 0 0 .882l2.862 2.873L0 6.627l.881.882 3.75-3.755z" transform="translate(-6.982 130.562)"/>
+            <path id="_Color-2" data-name="↳Color" class="cls-2" d="M9.873 14.634H1.519A1.577 1.577 0 0 1 0 13.008V1.627A1.578 1.578 0 0 1 1.519 0h8.354a1.577 1.577 0 0 1 1.519 1.627v2.438H9.873V1.627H1.519v11.381h8.354v-2.439h1.519v2.439a1.577 1.577 0 0 1-1.519 1.626z" transform="translate(-20 127)"/>
         </g>
     </g>
 </svg>

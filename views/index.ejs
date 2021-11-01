@@ -110,12 +110,17 @@
 
         <!-- user ui start -->
         <div class="title-container">
-          <a href='https://cafe.naver.com/coredenim' target="_blank" title="브랜디드" class="button-wrapper left">
+          <a onClick="window.location.reload()">
             <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
           </a>
-          <div id="admin-button" class="button-wrapper right">
-            <img src="asset/icon_login.svg" alt="admin" id="login-icon"/>
-            <img src="asset/icon_logout.svg" alt="admin" id="logout-icon"/>
+          <div class="right-nav-bar">
+            <a href='https://cafe.naver.com/coredenim' target="_blank" title="브랜디드" class="button-wrapper right">
+              <img src="asset/naver_cafe.svg" alt="logo" class="cafe-icon"/>
+            </a>
+            <div id="admin-button" class="button-wrapper right">
+              <img src="asset/icon_login.svg" alt="admin" id="login-icon"/>
+              <img src="asset/icon_logout.svg" alt="admin" id="logout-icon"/>
+            </div>
           </div>
         </div>
 
@@ -147,6 +152,7 @@
               <span id='beauty'>뷰티</span>
             </div>
           </div>
+          <div class="white-background"></div>
             
           <div id="companies-container">
             <div id="add-button-container">
