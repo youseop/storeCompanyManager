@@ -35,7 +35,7 @@ export function addBrandedSidebarLink(e) {
   const target = e.target;
   changeTarget(target)
   const brandedElem = document.getElementById("branded");
-  window.scroll(0,  brandedElem.getBoundingClientRect().top + 50)
+  window.scroll(0,   window.pageYOffset + brandedElem.getBoundingClientRect().top - 200 )
   brandedElem.className = 'focused'
 }
 
