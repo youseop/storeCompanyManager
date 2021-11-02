@@ -101,11 +101,6 @@ ul {
   margin: auto;
   padding: 17px 20px;
   margin-top: 160px;
-  -ms-user-select: none; 
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 /* search-container */
