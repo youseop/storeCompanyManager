@@ -681,6 +681,7 @@ img.edit {
 .info-text-container {
   font-size: 10px;
   margin-bottom: 8px;
+  width: calc(100% + 20px);
 }
 
 .info-text-container.first-child {
