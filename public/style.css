@@ -183,6 +183,8 @@ ul {
 @media ( max-width: 768px ) {
   .category-container #user-category-list {
     padding-right:20px;
+    padding-left:20px;
+    transform: translateX(-20px);
   }
 }
 
