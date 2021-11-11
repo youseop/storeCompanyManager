@@ -32,7 +32,18 @@ function showCompaniesAlignedByKor(companies) {
 function alignCompaniesByCho(companies) {
   const alignedCompaniesByCho = {};
   for (const company of companies) {
-    const chosung = findHangul(company.korName);
+    let chosung = findHangul(company.korName);
+    if(chosung === 'ㄲ'){
+      chosung = 'ㄱ'
+    } else if(chosung === 'ㄸ'){
+      chosung = 'ㄷ'
+    } else if(chosung === 'ㅃ'){
+      chosung = 'ㅂ'
+    } else if(chosung === 'ㅆ'){
+      chosung = 'ㅅ'
+    } else if(chosung === 'ㅉ'){
+      chosung = 'ㅈ'
+    }
     if (chosung) {
       if (alignedCompaniesByCho[chosung] === undefined) {
         alignedCompaniesByCho[chosung] = [];

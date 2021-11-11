@@ -55,6 +55,7 @@ export function findHangul(string) {
       const first =
         ((unit - (unit % 28)) / 28 - (((unit - (unit % 28)) / 28) % 21)) / 21;
       const third = unit % 28;
+      console.log(word,first,Cho[first])
       return Cho[first];
     }
   }
