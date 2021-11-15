@@ -83,3 +83,45 @@ export async function deleteCompanyAndUpdate(targetId) {
       console.warn("error while get data", error);
     });
 }
+
+export async function getCompanyViews() {
+  fetch("/company/view/api", {
+    method: "GET",
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    })
+    .then(function (data) {
+      const sortable = Object.entries(data)
+        .sort(([, a], [, b]) => b - a)
+        .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+      console.log('브랜드별 클릭 횟수: ',sortable);
+    })
+    .catch(function (error) {
+      console.warn("error while get data", error);
+    });
+}
+
+export async function recordViewCompany(body) {
+  fetch("/company/view/api", {
+    method: "POST",
+    body: JSON.stringify({
+      ...body,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    })
+    .catch(function (error) {
+      console.warn("error while post data", error);
+    });
+}

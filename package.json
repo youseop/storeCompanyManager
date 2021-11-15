@@ -2,7 +2,7 @@
   "name": "storecompanymanager",
   "version": "1.0.0",
   "description": "web page to manage companies that enter the store",
-  "main": "app.js",
+  "main": "web.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",

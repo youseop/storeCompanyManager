@@ -1,4 +1,4 @@
-import { getCompaniesAndUpdate } from "./api.js";
+import { getCompaniesAndUpdate, recordViewCompany } from "./api.js";
 import {
   displayManageModal,
   setButtonEventOfManageModal,
@@ -29,7 +29,12 @@ function setEventDeligation() {
 
   todoList.addEventListener("click", (e) => {
     const target = e.target;
+    const targetClassName = target.className
     const brandId = target.parentElement.id;
+    const korName = target.parentElement.dataset['korname'];
+    if(targetClassName.indexOf('company-link-nonadmin')>=0){
+      recordViewCompany({korName});
+    }
     switch (target.className) {
       case EDIT:
         const dataForEdit = e.target.parentNode.dataset;

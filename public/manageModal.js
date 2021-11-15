@@ -1,4 +1,4 @@
-import { deleteCompanyAndUpdate } from "./api.js";
+import { deleteCompanyAndUpdate, getCompanyViews } from "./api.js";
 import { getCategoriesModel } from "./category.js";
 import { EDIT } from "./constant.js";
 import { pwd } from "./env.js";
@@ -74,6 +74,7 @@ export function setButtonEventOfManageModal() {
       const outerContainer = document.getElementById("outer-container");
       outerContainer.className = "admin-mode";
       closeAdminContainer();
+      getCompanyViews();
     } else {
       alert("잘못된 비밀번호 입니다.");
     }
