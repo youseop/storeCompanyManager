@@ -1,10 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <g data-name="그룹 2760" transform="translate(-106 -337)">
-        <rect data-name="사각형 1835" width="24" height="24" rx="4" transform="translate(106 337)" style="fill:#24c73c"/>
-        <g data-name="그룹 2759" transform="translate(-921.009 -27.293)">
-            <path data-name="패스 1013" d="M1045.145 427.862a2.308 2.308 0 0 0-.936.181c-1.019-.973-3.258-1.648-5.856-1.648-3.559 0-6.443 1.267-6.443 2.831v3.613a6.444 6.444 0 0 0 12.588 1.943l2.32-1.575a2.9 2.9 0 0 0 1.286-2.259v-.122a2.962 2.962 0 0 0-2.959-2.964zm.893 4.112-1.241.837v-3.471a1.523 1.523 0 0 1 1.867 1.33c0 .028 0 .056.006.083a1.407 1.407 0 0 1-.632 1.222z" transform="translate(0 -55.332)" style="fill:#e3e3e3"/>
-            <ellipse data-name="타원 12" cx="5.235" cy="1.651" rx="5.235" ry="1.651" transform="translate(1033.119 372.515)" style="fill:#78432a"/>
-            <path data-name="패스 1014" d="M1096.338 372.515a5.6 5.6 0 0 0 .154 1.3 5.589 5.589 0 0 0 6.924-6.69 5.59 5.59 0 0 0-7.078 5.388z" transform="translate(-59.945)" style="fill:#21b725"/>
+    <defs>
+        <style>
+            .cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="Group_2776" data-name="Group 2776" transform="translate(-78 -354)">
+        <rect id="Rectangle_1840" data-name="Rectangle 1840" width="24" height="24" rx="4" transform="translate(78 354)" style="fill:#24c73b"/>
+        <g id="Group_2775" data-name="Group 2775" transform="translate(57.137 239.085)">
+            <path id="Rectangle_1841" data-name="Rectangle 1841" class="cls-2" d="M4.027 0h4.131a4.027 4.027 0 0 1-4.027 4.027H0A4.027 4.027 0 0 1 4.027 0z" transform="translate(28.314 119.415)"/>
+            <path id="Path_1038" data-name="Path 1038" class="cls-2" d="M38.1 127.833H25.863v3.514a5.8 5.8 0 0 0 11.293 1.86h.944a2.427 2.427 0 0 0 2.427-2.427v-.521a2.427 2.427 0 0 0-2.427-2.426zm1.291 2.843a1.384 1.384 0 0 1-1.383 1.384h-.591a5.773 5.773 0 0 0 .048-.712V129h.543a1.383 1.383 0 0 1 1.383 1.384z" transform="translate(0 -2.733)"/>
         </g>
     </g>
 </svg>
