@@ -19,10 +19,10 @@ function submitBrand(e) {
     alert("한글 표기가 잘못되었습니다.");
     return;
   }
-  if (!checkEng(inputFieldValues.engName[0])) {
-    alert("영어 표기가 잘못되었습니다.");
-    return;
-  }
+  // if (!checkEng(inputFieldValues.engName[0])) {
+  //   alert("영어 표기가 잘못되었습니다.");
+  //   return;
+  // }
   inputFieldManager.resetValues();
   if (targetClassList.contains(EDIT)) {
     const targetIdField = document.getElementById("id-for-edit");
