@@ -1,3 +1,4 @@
+import { resetCategory } from "./category.js";
 import { companyManager } from "./company.js";
 
 const formTag = document.querySelector("#search-form");
@@ -30,6 +31,7 @@ function submitEvent(e) {
   inputTag.value = "";
   companyManager.searchCompany(searchKeyword);
   inputTag.blur();
+  resetCategory();
 }
 
 
