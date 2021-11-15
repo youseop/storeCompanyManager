@@ -119,8 +119,16 @@
 
         <!-- user ui start -->
         <div class="title-container">
-          <a onClick="window.location.reload()">
-            <img src="asset/logo_brandedlogo.svg" alt="logo" class="title-img"/>
+          <a onClick="window.location.reload()" class="branded-container">
+            <img src="asset/logo_branded.svg" alt="logo" class="title-img"/>
+            <div class="branded-count-container">
+              <img src="asset/text_branded.svg" alt="logo" class="text-branded"/>
+              <span class="brand-count-text">
+                총 
+                <div id="brand-count-text-bold"></div>
+                의 브랜드가 활동하고 있어요.
+              </span>
+            </div>
           </a>
           <div class="right-nav-bar">
             <a href='https://cafe.naver.com/coredenim' target="_blank" title="브랜디드" class="button-wrapper right">

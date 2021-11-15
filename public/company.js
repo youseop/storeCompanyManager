@@ -154,6 +154,8 @@ export function editCompany(company) {
 }
 
 function updateCompanies(companies) {
+  const brandCounterText = document.getElementById("brand-count-text-bold");
+  brandCounterText.innerText = `${companies.length}개`
   const companyList = document.getElementById("company-list");
   while (companyList.firstChild) {
     companyList.removeChild(companyList.lastChild);
@@ -215,7 +217,7 @@ function getCompanyManager() {
       const LoweredKeyWord = keyWord.toLowerCase();
       const searchedCompanies = totalCompanies.filter((company) => {
         if (
-          company.engName.toLowerCase().indexOf(keyWord) >= 0 ||
+          company.engName.toLowerCase().indexOf(LoweredKeyWord) >= 0 ||
           company.korName.indexOf(keyWord) >= 0
         ) {
           return true;

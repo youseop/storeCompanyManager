@@ -43,6 +43,38 @@ ul {
   z-index: 2;
 }
 
+.branded-container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.text-branded{
+  height: 17px;
+  margin-top: 3px;
+}
+
+.brand-count-text{
+  transform: translate(1px,-1px);
+  display: flex;
+}
+
+#brand-count-text-bold{
+  font-weight: bold;
+  width: 29px;
+  text-align: right;
+}
+
+.branded-count-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: auto;
+  font-size: 10px;
+}
+
 .title-img {
   height: 32px;
   margin: 0px 0.3px 0.3px 0;
