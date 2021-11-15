@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 12px;
   all: unset;
@@ -746,6 +750,19 @@ img.edit {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+.side-bar#go-to-top{
+  background-color: #a02121;
+  top: unset;
+  bottom: 20px;  
+  width: 22px;
+  height: 22px;
+  background-color: #e3e3e3;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 @media screen and (min-width: 1240px) {
   .side-bar {

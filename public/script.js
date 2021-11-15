@@ -7,7 +7,6 @@ import { categoryInit } from "./category.js";
 import { initSubmitBrand } from "./submitBrand.js";
 import { DELETE, EDIT } from "./constant.js";
 import { initSearchForm } from "./search.js";
-import pannel from './fps_panel.js';
 
 categoryInit();
 initSubmitBrand();
@@ -18,6 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   setEventDeligation();
   setButtonEventOfManageModal();
 });
+
+document.getElementById("go-to-top").addEventListener('click',()=>{
+  window.scrollTo(0,0)
+})
 
 function setEventDeligation() {
   const todoList = document.getElementById("company-list");

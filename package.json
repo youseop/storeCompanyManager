@@ -24,6 +24,8 @@
     "express": "^4.17.1",
     "gh-pages": "^3.2.3",
     "mongoose": "^5.13.7",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "smoothscroll": "^0.4.0",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }
