@@ -33,10 +33,10 @@ ul {
 
 /* title-container */
 .title-container {
+  background-color: white;
   height: 54px;
   padding: 0 20px;
   padding-top: 5px;
-  background-color: #fafafa;
   display: flex;
   justify-content: space-between;
   align-items: center;
