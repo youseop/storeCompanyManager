@@ -98,7 +98,7 @@ export async function getCompanyViews() {
       const sortable = Object.entries(data)
         .sort(([, a], [, b]) => b - a)
         .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-      console.log('브랜드별 클릭 횟수: ',sortable);
+      // console.log('브랜드별 클릭 횟수: ',sortable);
     })
     .catch(function (error) {
       console.warn("error while get data", error);
