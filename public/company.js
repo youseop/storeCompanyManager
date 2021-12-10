@@ -4,7 +4,8 @@ import { findHangul, getCharFromCho, Cho } from "./word.js";
 const companyList = document.getElementById("company-list");
 
 function showCompanies(companies) {
-  showBrandedCompanies(companies);
+  const brandedCompanies = companies.filter((company) => company.isBranded);
+  showBrandedCompanies(brandedCompanies);
   showCompaniesAlignedByKor(companies);
 }
 
@@ -54,7 +55,7 @@ function alignCompaniesByCho(companies) {
   return alignedCompaniesByCho;
 }
 
-function showBrandedCompanies(companies) {
+function showBrandedCompanies(brandedCompanies) {
   const categoryTag = `
     <div class="category-tag" id="branded">
       브랜디드 인더스트리
@@ -64,7 +65,6 @@ function showBrandedCompanies(companies) {
   starIcon.addEventListener("click", addBrandedSidebarLink);
   starIcon.addEventListener("mouseenter", addBrandedSidebarLink);
 
-  const brandedCompanies = companies.filter((company) => company.isBranded);
   if (brandedCompanies.length > 0) {
     companyList.insertAdjacentHTML("beforeend", categoryTag);
   } else {
@@ -173,16 +173,12 @@ function getCompanyManager() {
     setCompanies: (companies) => {
       const brandCounterText = document.getElementById("brand-count-text-bold");
       brandCounterText.innerText = `${companies.length}개`
-      totalCompanies = companies.sort(
-        (firstElem, secondElem) => firstElem.korName >= secondElem.korName
-      );
+      totalCompanies = companies.sort(sortByKorName);
       updateCompanies(totalCompanies);
     },
     addCompany: (company) => {
       totalCompanies.push(company);
-      totalCompanies = totalCompanies.sort(
-        (firstElem, secondElem) => firstElem.korName >= secondElem.korName
-      );
+      totalCompanies = totalCompanies.sort(sortByKorName);
       updateCompanies(totalCompanies);
     },
     resetCompanies: () => {
@@ -227,6 +223,13 @@ function getCompanyManager() {
       updateCompanies(searchedCompanies);
     },
   };
+}
+
+const sortByKorName = (firstElem, secondElem) => {
+  if(firstElem.korName >= secondElem.korName){
+    return 1;
+  }
+  return -1;
 }
 
 export const companyManager = getCompanyManager();
